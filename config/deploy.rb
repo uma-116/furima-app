@@ -1,7 +1,7 @@
-# Gemfile.lockを見てcapistranoのバージョンを入れる
+
 lock '3.14.0'
 
-# 自身のアプリ名、リポジトリ名を記述
+
 set :application, 'furima-app'
 set :repo_url,  'git@github.com:uma-116/furima-app.git'
 
@@ -10,7 +10,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 set :rbenv_type, :user
 set :rbenv_ruby, '2.5.1'
 
-# chat-spaceで使ったpemを指定
+
 set :ssh_options, auth_methods: ['publickey'],
                   keys: ['~/.ssh/ChatSpace.pem']
 
