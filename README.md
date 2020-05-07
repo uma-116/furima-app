@@ -78,6 +78,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+|ancestry|integer| |
 ### Association
 - has_many :items
 
