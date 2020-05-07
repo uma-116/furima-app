@@ -5,9 +5,9 @@
         = link_to "#" do
           = image_tag "header_log", size: "140x41", alt: "ICON" 
       .header__inner__main__search-box
-        %form{:action => "#", :method => "GET"}
-          %input{:placeholder => "キーワードから探す", :type => "seach"}/          
-          %button{:type => "submit"}
+        %form{action: "#"}
+          %input{placeholder: "キーワードから探す", type: "seach"}/          
+          %button{type: "submit"}
             = image_tag "icon-search", size: "20x20", alt: "ICON" 
     .header__inner__nav
       %ul.header__inner__nav__left
