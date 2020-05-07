@@ -395,17 +395,17 @@ html {
       font-size: 35px;
       text-shadow: 0 0 5px rgba(0,0,0,0.4)
     }
-    &__app-btn {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      margin: 20px auto 0;
-      a:first-child {
-        margin-right: 10px;
-      }
-      a:hover {
-        @include cursor-hover();
-      }
+  }
+  &__app-btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 20px auto 0;
+    a:first-child {
+      margin-right: 10px;
+    }
+    a:hover {
+      @include cursor-hover();
     }
   }
 } 
