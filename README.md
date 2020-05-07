@@ -7,9 +7,9 @@
 |email|string|null: false|
 |password|string|null: false|
 ### Association
-- belongs_to :profiles
-- belongs_to :addresses
-- belongs_to :credit_card
+- has_one :profile
+- has_one :address
+- has_one :credit_card
 - has_many :items
 
 
@@ -26,7 +26,7 @@
 |phone_number|integer|null: false|
 |user_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :users
+- belongs_to :user
 
 
 ## addressesテーブル
@@ -39,7 +39,7 @@
 |apartment_name|string| |
 |user_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :users
+- belongs_to :user
 
 
 
@@ -52,13 +52,12 @@
 |security_code|integer|null: false|
 |user_id|integer|null: false, foreign_key:true|
 ### Association
-- belongs_to :users
+- belongs_to :user
 
 
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|img|string|null: false|
 |name|string|null: false|
 |detail|text|null: false|
 |price|integer|null: false|
@@ -66,12 +65,22 @@
 |ship_from|string|null: false|
 |ship_date|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
+|img_id|integer|null:false, foreign_key: true|
 |category_id|integer|null: false, foreign_key: true|
 |brand_id|integer|foreign_key: true|
 ### Association
-- belongs_to :users
-- belongs_to :categories
-- belongs_to :brands
+- belongs_to :user
+- has_many :imgs
+- belongs_to :category
+- belongs_to :brand
+
+
+## imgsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|img|string|null: false|
+### Association
+- belongs_to :item
 
 
 ## categoriesテーブル
