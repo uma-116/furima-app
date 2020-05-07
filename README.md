@@ -65,7 +65,6 @@
 |ship_from|string|null: false|
 |ship_date|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
-|img_id|integer|null:false, foreign_key: true|
 |category_id|integer|null: false, foreign_key: true|
 |brand_id|integer|foreign_key: true|
 ### Association
@@ -75,10 +74,11 @@
 - belongs_to :brand
 
 
-## imgsテーブル
+## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |img|string|null: false|
+|item_id|integer|null: falsem foreign_key: true|
 ### Association
 - belongs_to :item
 
