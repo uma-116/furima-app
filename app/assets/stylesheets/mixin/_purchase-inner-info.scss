@@ -1,0 +1,21 @@
+@mixin purchase-inner-info() {
+  transition: all ease-out .3s;
+  text-align: left;
+  padding: 24px 0;
+  border-bottom: 1px solid whitesmoke;
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    &__label {
+      font-weight: bold;
+      font-size: 16px;
+    }
+    a {
+      font-weight: bold;
+      font-size: 14px;
+      text-decoration: none;
+      color: #0099e8;
+    }
+   }
+ }
