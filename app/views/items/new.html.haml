@@ -15,6 +15,7 @@
               %span.required
                 必須
             最大10枚までアップロードできます
+            -# カラム名(itemimage)は後で変更
             = f.file_field :itemimage
                           
           .content__main__item-name-box
@@ -22,12 +23,12 @@
               商品名
               %span.required
                 必須
-            = f.text_field :itemname, class:"content__main__item-name-box__item-name-field", placeholder: "40文字まで", maxlength: 40
+            = f.text_field :name, class:"content__main__item-name-box__item-name-field", placeholder: "40文字まで", maxlength: 40
             .text-bold
               商品の説明
               %span.required
                 必須
-            = f.text_area :itemexplanation, class:"content__main__item-name-box__item-exp-field", placeholder: "商品の説明(必須１０００文字以内)\n(色、素材、重さ、定価、注意点など)\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", maxlength: 1000
+            = f.text_area :detail, class:"content__main__item-name-box__item-exp-field", placeholder: "商品の説明(必須１０００文字以内)\n(色、素材、重さ、定価、注意点など)\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", maxlength: 1000
               
           .content__main__item-info-box
             .content__main__item-info-box__headline
@@ -36,14 +37,17 @@
               カテゴリー
               %span.required
                 必須
+            -# カラム名(category)は後で変更
             = f.select :category, [['レディース', 1], ['メンズ', 2], ['ベビー・キッズ', 3], ['インテリア・住まい・小物', 4], ['本・音楽・ゲーム', 5], ['おもちゃ・ホビー・グッズ', 6], ['コスメ・香水・美容', 7], ['家電・スマホ・カメラ', 8], ['スポーツ・レジャー', 9], ['ハンドメイド', 10], ['チケット', 11], ['自動車・オートバイ', 12], ['その他', 13]], {prompt: "選択してください"}, {class: "content__main__item-info-box__category"} 
             .text-bold
               ブランド
+            -# カラム名(brand)は後で変更
             = f.text_field :brand, class:"content__main__item-info-box__brand-field", placeholder: "例）シャネル"
             .text-bold
               商品の状態
               %span.required
                 必須
+            -# カラム名(itemstatus)は後で変更
             = f.select :itemstatus, [['新品・未使用', 1], ['未使用に近い', 2], ['目立った傷や汚れなし', 3], ['やや傷や汚れあり', 4], ['傷や汚れあり', 5], ['全体的に状態が悪い', 6]], {prompt: "選択してください"}, {class: "content__main__item-info-box__item-status"}
 
           .content__main__delivery-box
@@ -55,17 +59,17 @@
               配送料の負担
               %span.required
                 必須
-            = f.select :deliveryfee, [['送料込み(出品者負担)', 1], ['着払い(購入者負担)', 2]], {prompt: "選択してください"}, {class: "content__main__delivery-box__delivery-fee"} 
+            = f.select :postage, [['送料込み(出品者負担)', 1], ['着払い(購入者負担)', 2]], {prompt: "選択してください"}, {class: "content__main__delivery-box__delivery-fee"} 
             .text-bold
               発送元の地域
               %span.required
                 必須
-            = f.select :area, [['北海道', 1], ['青森県', 2]], {prompt: "選択してください"}, {class: "content__main__delivery-box__area"}
+            = f.select :ship_from, [['北海道', 1], ['青森県', 2]], {prompt: "選択してください"}, {class: "content__main__delivery-box__area"}
             .text-bold
               発送までの日数
               %span.required
                 必須
-            = f.select :days, [['1~2日で発送', 1], ['2~3日で発送', 2], ['4~7日で発送', 3]], {prompt: "選択してください"}, {class: "content__main__delivery-box__days"}
+            = f.select :ship_date, [['1~2日で発送', 1], ['2~3日で発送', 2], ['4~7日で発送', 3]], {prompt: "選択してください"}, {class: "content__main__delivery-box__days"}
 
           .content__main__price-box
             .content__main__price-box__headline
