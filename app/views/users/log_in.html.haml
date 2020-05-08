@@ -1,0 +1,13 @@
+.login-wrapper
+  .login-wrapper__logo
+    = link_to root_path do
+      = image_tag "logo.png", :size => "185x49"
+
+  .login-wrapper__main
+    アカウントをお持ちでない方はこちら
+    = link_to "#", class: "login-wrapper__main__btn" do
+      新規会員登録
+  .login-wrapper__main
+    %input{class: "login-wrapper__main__text",placeholder: "メールアドレス"}
+    %input{class: "login-wrapper__main__text",placeholder: "パスワード"}
+    %input{type:"submit", class: "login-wrapper__main__btn", value: "ログイン"}
