@@ -9,9 +9,9 @@
         フリマアプリです
       .main__visual__content__app-btn
         = link_to "#" do
-          = image_tag "app-store", size: "180x54", alt: "ICON" 
+          = image_tag asset_path("app-store.svg"), size: "180x54", alt: "ICON" 
         = link_to "#" do
-          = image_tag "google-play", size: "180x54", alt: "ICON"   
+          = image_tag asset_path("google-play.svg"), size: "180x54", alt: "ICON"   
 
   %section.main__top-introduction
     %h2.main__top-introduction__title
@@ -21,7 +21,7 @@
         .main__top-introduction__lists__list__pict
           %span.main__top-introduction__lists__list__pict__number
             1
-          = image_tag "pict-reason-01", alt: "ICON" 
+          = image_tag asset_path("pict-reason-01.jpg"), alt: "ICON" 
         %h3.main__top-introduction__lists__list__text
           %span
             3分
@@ -32,7 +32,7 @@
         .main__top-introduction__lists__list__pict
           %span.main__top-introduction__lists__list__pict__number
             2
-          = image_tag "pict-reason-02", alt: "ICON" 
+          = image_tag asset_path("pict-reason-02.jpg"), alt: "ICON" 
         %h3.main__top-introduction__lists__list__text
           %span
             シンプル
@@ -43,7 +43,7 @@
         .main__top-introduction__lists__list__pict
           %span.main__top-introduction__lists__list__pict__number
             3
-          = image_tag "pict-reason-03", alt: "ICON" 
+          = image_tag asset_path("pict-reason-03.jpg"), alt: "ICON" 
         %h3.main__top-introduction__lists__list__text
           手数料
           %span
@@ -63,30 +63,30 @@
         ほしかったあの商品に出会えるかもしれません。
       .main__top-app-dl__inner__app-btn
         = link_to "#" do
-          = image_tag "app-store", size: "180x54", alt: "ICON" 
+          = image_tag asset_path("app-store.svg"), size: "180x54", alt: "ICON" 
         = link_to "#" do
-          = image_tag "google-play", size: "180x54", alt: "ICON"         
+          = image_tag asset_path("google-play.svg"), size: "180x54", alt: "ICON"         
   %section.main__top-key-features
     %h2.main__top-key-features__head
       FURIMAの特徴
     .main__top-key-features__items
       %section.main__top-key-features__items__item
         %figure.main__top-key-features__items__item__image
-          = image_tag "icon-01", alt: "ICON"
+          = image_tag asset_path("icon-01.svg"), alt: "ICON"
         %h3.figure.main__top-key-features__items__item__title
           簡単に売り買いできる
         %p.figure.main__top-key-features__items__item__detail
           スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
       %section.main__top-key-features__items__item
         %figure.main__top-key-features__items__item__image
-          = image_tag "icon-03", alt: "ICON"
+          = image_tag asset_path("icon-03.svg"), alt: "ICON"
         %h3.figure.main__top-key-features__items__item__title
           売上金は即日振込みに対応
         %p.figure.main__top-key-features__items__item__detail
           スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
       %section.main__top-key-features__items__item
         %figure.main__top-key-features__items__item__image
-          = image_tag "icon-04", alt: "ICON"
+          = image_tag asset_path("icon-04.svg"), alt: "ICON"
         %h3.figure.main__top-key-features__items__item__title
           様々な支払いに対応
         %p.figure.main__top-key-features__items__item__detail
@@ -104,7 +104,7 @@
         .main__top-pickup-contents__product-box__lists__list
           = link_to "#" do
             %figure.main__top-pickup-contents__product-box__lists__list__image
-              = image_tag "product3", alt: "ICON"
+              = image_tag asset_path("product3.png"), alt: "ICON"
             .main__top-pickup-contents__product-box__lists__list__body
               .main__top-pickup-contents__product-box__lists__list__body__name
                 %h3
@@ -122,7 +122,7 @@
         .main__top-pickup-contents__product-box__lists__list
           = link_to "#" do
             %figure.main__top-pickup-contents__product-box__lists__list__image
-              = image_tag "product2", alt: "ICON"
+              = image_tag asset_path("product2.png"), alt: "ICON"
             .main__top-pickup-contents__product-box__lists__list__body
               .main__top-pickup-contents__product-box__lists__list__body__name
                 %h3
@@ -140,7 +140,7 @@
         .main__top-pickup-contents__product-box__lists__list
           = link_to "#" do
             %figure.main__top-pickup-contents__product-box__lists__list__image
-              = image_tag "product1", alt: "ICON"
+              = image_tag asset_path("product1.png"), alt: "ICON"
             .main__top-pickup-contents__product-box__lists__list__body
               .main__top-pickup-contents__product-box__lists__list__body__name
                 %h3
@@ -168,7 +168,7 @@
         .main__top-pickup-contents__product-box__lists__list
           = link_to "#" do
             %figure.main__top-pickup-contents__product-box__lists__list__image
-              = image_tag "product3", alt: "ICON"
+              = image_tag asset_path("product3.png"), alt: "ICON"
             .main__top-pickup-contents__product-box__lists__list__body
               .main__top-pickup-contents__product-box__lists__list__body__name
                 %h3
@@ -186,7 +186,7 @@
         .main__top-pickup-contents__product-box__lists__list
           = link_to "#" do
             %figure.main__top-pickup-contents__product-box__lists__list__image
-              = image_tag "product2", alt: "ICON"
+              = image_tag asset_path("product2.png"), alt: "ICON"
             .main__top-pickup-contents__product-box__lists__list__body
               .main__top-pickup-contents__product-box__lists__list__body__name
                 %h3
@@ -204,7 +204,7 @@
         .main__top-pickup-contents__product-box__lists__list
           = link_to "#" do
             %figure.main__top-pickup-contents__product-box__lists__list__image
-              = image_tag "product1", alt: "ICON"
+              = image_tag asset_path("product1.png"), alt: "ICON"
             .main__top-pickup-contents__product-box__lists__list__body
               .main__top-pickup-contents__product-box__lists__list__body__name
                 %h3
