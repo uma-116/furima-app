@@ -7,7 +7,7 @@
     .content
       .content__main 
         -# @userの部分は後でモデルクラスのインスタンスに変更        
-        = form_with model: @user do |f|
+        = form_with model: @item, local: true do |f|
  
           .content__main__item-image-box
             .text-bold
@@ -38,17 +38,19 @@
               %span.required
                 必須
             -# カラム名(category)は後で変更
-            = f.select :category, [['レディース', 1], ['メンズ', 2], ['ベビー・キッズ', 3], ['インテリア・住まい・小物', 4], ['本・音楽・ゲーム', 5], ['おもちゃ・ホビー・グッズ', 6], ['コスメ・香水・美容', 7], ['家電・スマホ・カメラ', 8], ['スポーツ・レジャー', 9], ['ハンドメイド', 10], ['チケット', 11], ['自動車・オートバイ', 12], ['その他', 13]], {prompt: "選択してください"}, {class: "content__main__item-info-box__category"} 
+            = f.select :category_id, [['レディース', 1], ['メンズ', 2], ['ベビー・キッズ', 3], ['インテリア・住まい・小物', 4], ['本・音楽・ゲーム', 5], ['おもちゃ・ホビー・グッズ', 6], ['コスメ・香水・美容', 7], ['家電・スマホ・カメラ', 8], ['スポーツ・レジャー', 9], ['ハンドメイド', 10], ['チケット', 11], ['自動車・オートバイ', 12], ['その他', 13]], {prompt: "選択してください"}, {class: "content__main__item-info-box__category"} 
             .text-bold
               ブランド
             -# カラム名(brand)は後で変更
             = f.text_field :brand, class:"content__main__item-info-box__brand-field", placeholder: "例）シャネル"
+            -# 下の１行はテスト用なので、あとで削除
+            = f.text_field :user_id, class:"content__main__item-info-box__brand-field", placeholder: "ユーザーid仮入力"
+
             .text-bold
               商品の状態
               %span.required
                 必須
-            -# カラム名(itemstatus)は後で変更
-            = f.select :itemstatus, [['新品・未使用', 1], ['未使用に近い', 2], ['目立った傷や汚れなし', 3], ['やや傷や汚れあり', 4], ['傷や汚れあり', 5], ['全体的に状態が悪い', 6]], {prompt: "選択してください"}, {class: "content__main__item-info-box__item-status"}
+            = f.select :condition, [['新品・未使用', 1], ['未使用に近い', 2], ['目立った傷や汚れなし', 3], ['やや傷や汚れあり', 4], ['傷や汚れあり', 5], ['全体的に状態が悪い', 6]], {prompt: "選択してください"}, {class: "content__main__item-info-box__item-status"}
 
           .content__main__delivery-box
             -# 「配送について」のリンクは削除してもいいかも
@@ -99,7 +101,7 @@
             = f.submit "下書きに保存", class: "content__main__botton-box__draft-botton"
             = link_to "#", class: "back-btn" do
               もどる
-  
+
         .content__main__warning-box
           禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
     = render "footer"
