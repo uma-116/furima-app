@@ -3,12 +3,12 @@
     .header__inner__main
       %h1.header__inner__main__icon
         = link_to "#" do
-          = image_tag "header_log", size: "140x41", alt: "ICON" 
+          = image_tag asset_path("header_log.svg"), size: "140x41", alt: "ICON" 
       .header__inner__main__search-box
         %form{action: "#"}
           %input{placeholder: "キーワードから探す", type: "seach"}/          
           %button{type: "submit"}
-            = image_tag "icon-search", size: "20x20", alt: "ICON" 
+            = image_tag asset_path("icon-search.svg"), size: "20x20", alt: "ICON" 
     .header__inner__nav
       %ul.header__inner__nav__left
         %li.header__inner__nav__left__category
