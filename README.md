@@ -60,6 +60,7 @@
 |------|----|-------|
 |name|string|null: false|
 |detail|text|null: false|
+|condition|string||null: false|
 |price|integer|null: false|
 |postage|string|null: false|
 |ship_from|string|null: false|
