@@ -17,7 +17,7 @@ a{
 .container{
   &__main{
     width: 1020px;
-    margin: 40px 390px;
+    margin: 40px auto 0;
     display: flex;
     &__left{
       float: left;
