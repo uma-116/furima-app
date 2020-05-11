@@ -1,0 +1,229 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f0f0f0;
+  font-size: 14px;
+  color: #333;
+  margin: 0 auto;
+}
+h1,h2,h3,h4,h5,h6,p {
+  padding: 10px 0;
+  margin: 0;
+}
+
+a{
+  text-decoration: none;
+  color: #0095ee;
+}
+
+/*.header{
+ * background-color: #f8f8f8;
+ * height: 100px;
+ * width: 100vw;
+ * }
+ */
+
+.text-bold{
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.required{
+  color: white;
+  background-color: red;
+  margin-left: 1em;
+  padding: 2px;
+  }
+
+
+$form-font-size: 18px;
+$form-padding: 5px;
+$main-padding: 40px 0 ;
+$main-padding-bottom: 40px;
+$main-border-bottom: 1px solid grey;
+
+
+
+.content {
+  background-color: #f8f8f8;
+  &__main{
+    background-color: white;
+    width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    &__item-image-box{
+      padding-bottom: $main-padding-bottom;
+      border-bottom: $main-border-bottom;
+    }
+    &__item-name-box{
+      padding: $main-padding;
+      border-bottom: $main-border-bottom;
+      &__item-name-field{
+        width: 100%;
+        font-size: $form-font-size;
+        line-height: 40px;
+        margin-bottom: 20px;
+        padding: $form-padding;
+      }
+      &__item-exp-field{
+        width: 100%;
+        height: 200px;
+        font-size: $form-font-size;
+        padding: $form-padding;
+      }    
+    }
+
+    &__item-info-box{
+      padding: $main-padding;
+      border-bottom: $main-border-bottom;
+      &__headline{
+        margin-bottom: 10px;
+      }
+      &__category{
+        width: 100%;
+        height: 40px;
+        font-size: $form-font-size;
+        margin-bottom: 20px;
+      }
+      &__brand-field{
+        width: 100%;
+        font-size: $form-font-size;
+        line-height: 40px;
+        margin-bottom: 20px;
+        padding: $form-padding;
+      }
+      &__item-status{
+        width: 100%;
+        height: 40px;
+        font-size: $form-font-size;
+      }
+    }
+  
+
+    &__delivery-box{
+      padding: $main-padding;
+      border-bottom: $main-border-bottom;
+      &__headline{
+        margin-bottom: 10px;
+      }
+      &__delivery-fee{
+        width: 100%;
+        height: 40px;
+        font-size: $form-font-size;
+        margin-bottom: 20px;
+      }
+      &__area{
+        width: 100%;
+        height: 40px;
+        font-size: $form-font-size;
+        margin-bottom: 20px;
+      }
+      &__days{
+        width: 100%;
+        height: 40px;
+        font-size: $form-font-size;
+      }
+    }
+    &__price-box{
+      padding: $main-padding;
+      border-bottom: $main-border-bottom;
+      &__headline{
+        margin-bottom: 10px;
+      }
+      &__inner{
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        &__left-box{
+          width: 50%;
+        }
+        &__right-box{
+          width: 50%;
+          &__price{
+            width: 100%;
+            height: 40px;
+            text-align: right;
+            padding: $form-padding; 
+          }
+        }
+      }
+      &__fee-inner{
+        width: 100%;
+        height: 40px;
+        margin-bottom: 20px;
+        line-height: 40px;
+        display: flex;
+        justify-content: space-between;
+        &__left{
+          // 未定
+        }
+        &__right{
+          // 未定
+        }
+      }
+      
+      &__profit-inner{
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        display: flex;
+        justify-content: space-between;
+        &__left{
+          // 未定
+        }
+        &__right{
+          // 未定
+        }
+      }
+      
+      }  
+
+    &__botton-box{
+      padding: $main-padding;
+      border-bottom: $main-border-bottom;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      &__send-botton{
+        color: white;
+        background-color: red;
+        font-size: 16px;
+        width: 50%;
+        height: 50px;
+        border: $main-border-bottom;
+        margin: 0 auto 20px;
+        border-radius: 8px;
+        border: none;
+      }
+      &__draft-botton{
+        background-color: #ccc;
+        width: 50%;
+        height: 50px;
+        font-size: 16px;
+        border: 1px solid;
+        margin: 0 auto 20px;
+        border-radius: 8px;
+        border: none;
+
+      }
+      .back-bton{
+        color: #0095ee;
+      }
+    }
+
+    &__warning-box{
+      font-size: 10px;
+      padding: 20px 0 ;
+    }
+  }               
+}
+
+/*.footer{
+ * background-color: #272727;
+ * height: 100px;
+ * width: 100vw;
+*  }
+*/
+
