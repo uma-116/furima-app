@@ -3,7 +3,6 @@
 }
 
 body {
-  background-color: #f0f0f0;
   font-size: 14px;
   color: #333;
   margin: 0 auto;
@@ -48,6 +47,7 @@ $main-border-bottom: 1px solid grey;
 
 .content {
   background-color: #f8f8f8;
+  border-top: 1px solid #f8f8f8;
   &__main{
     background-color: white;
     width: 700px;
