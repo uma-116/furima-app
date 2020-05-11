@@ -1,0 +1,37 @@
+.user-info-wrapper
+  .user-info-wrapper__logo
+    = link_to root_path, class: 'user-info-wrapper__logo--link' do
+      = image_tag asset_path("logo.png"), size: "185x49"
+
+  .user-info-wrapper__main
+    .user-info-wrapper__main__head
+      住所情報
+  .user-info-wrapper__main
+    .user-info-wrapper__main__title
+      郵便番号
+      %span{class: "require"} 必須
+    %input{class: "user-info-wrapper__main__text", placeholder: "例)123-4567"}
+    .user-info-wrapper__main__title
+      都道府県
+      %span{class: "require"} 必須
+      .flexbox
+        %select{class: "user-info-wrapper__main__select"}
+          %option{value: "0"} --
+          %option{value: "1"} 選択肢1
+          %option{value: "2"} 選択肢2
+          %option{value: "3"} 選択肢3
+    .user-info-wrapper__main__title
+      市区町村
+      %span{class: "require"} 必須
+    %input{class: "user-info-wrapper__main__text", placeholder: "例)港区"}
+    .user-info-wrapper__main__title
+      番地
+      %span{class: "require"} 必須
+    %input{class: "user-info-wrapper__main__text", placeholder: "例)青山1-2-3"}
+    .user-info-wrapper__main__title
+      建物名
+      %span{class: "any"} 任意
+    %input{class: "user-info-wrapper__main__text", placeholder: "例)〇〇ビル"}
+    .user-info-wrapper__main__caution
+      ※本人情報は正しく入力してください。会員登録後、お時間を頂く場合があります。
+    %input{type: "submit",class: "user-info-wrapper__main__btn", value: "次へ進む"}
