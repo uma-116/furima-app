@@ -5,7 +5,7 @@
 
   .login-wrapper__main
     アカウントをお持ちでない方はこちら
-    = link_to "#", class: "login-wrapper__main__btn" do
+    = link_to new_user_registration_path, class: "login-wrapper__main__btn" do
       新規会員登録
   .login-wrapper__main
     %input{class: "login-wrapper__main__text",placeholder: "メールアドレス"}
