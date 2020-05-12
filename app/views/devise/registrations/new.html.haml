@@ -1,138 +1,72 @@
-.user-info-wrapper
-  .user-info-wrapper__logo
-    = link_to root_path, class: 'user-info-wrapper__logo--link' do
-      = image_tag asset_path("logo.png"), size: "185x49"
+= form_with model: @user,url: user_registration_path do |f|
+  .user-info-wrapper
+    .user-info-wrapper__logo
+      = link_to root_path, class: 'user-info-wrapper__logo--link' do
+        = image_tag asset_path("logo.png"), size: "185x49"
 
-  .user-info-wrapper__main
-    .user-info-wrapper__main__head
-      会員情報入力
-  .user-info-wrapper__main
-    .user-info-wrapper__main__title
-      ニックネーム
-      %span{class: "must"} 必須
-    = f.text_field :nickname, {class: "user-info-wrapper__main__text", placeholder: "例)フリマ太郎"}
+    .user-info-wrapper__main
+      .user-info-wrapper__main__head
+        会員情報入力
+    .user-info-wrapper__main
+      .user-info-wrapper__main__title
+        ニックネーム
+        %span{class: "must"} 必須
+      = f.text_field :nickname, {class: "user-info-wrapper__main__text", placeholder: "例)フリマ太郎"}
 
-    .user-info-wrapper__main__title
-      メールアドレス
-      %span{class: "must"} 必須
-    = f.text_field :email, {class: "user-info-wrapper__main__text", placeholder: "PC・携帯どちらでも可"}
+      .user-info-wrapper__main__title
+        メールアドレス
+        %span{class: "must"} 必須
+      = f.text_field :email, {class: "user-info-wrapper__main__text", placeholder: "PC・携帯どちらでも可"}
 
-    .user-info-wrapper__main__title
-      パスワード
-      %span{class: "must"} 必須
-    = f.password_field :password, {class: "user-info-wrapper__main__text", placeholder: "7文字以上の半角英数字"}
-    
-    .user-info-wrapper__main__title
-      パスワード(確認)
-      %span{class: "must"} 必須
-    = f.password_field :password_confirmation, {class: "user-info-wrapper__main__text", placeholder: "7文字以上の半角英数字"}
-    
-    .user-info-wrapper__main__title
-      お名前(全角)
-      %span{class: "must"} 必須
-      .flexbox
-        = f.text_field :firstname, {class: "user-info-wrapper__main__text text-half", placeholder: "例)山田"}
-        = f.text_field :lastname , {class: "user-info-wrapper__main__text text-half", placeholder: "例)太郎"}
-    
-    .user-info-wrapper__main__title
-      お名前カナ(全角)
-      %span{class: "must"} 必須
-      .flexbox
-        = f.text_field :firstname_kana, {class: "user-info-wrapper__main__text text-half", placeholder: "例)ヤマダ"}
-        = f.text_field :lastname_kana , {class: "user-info-wrapper__main__text text-half", placeholder: "例)タロウ"}
-    
-    .user-info-wrapper__main__title
-      生年月日
-      %span{class: "must"} 必須
-      .flexbox
-        = f.select :birth_year, year, {}, class: "new_session-wrapper__main__select three-select"
-          %option{value: "0"} --
-          %option{value: "1"} 1980
-          %option{value: "2"} 1981
-          %option{value: "3"} 1982
-          %option{value: "4"} 1983
-          %option{value: "5"} 1984
-          %option{value: "6"} 1985
-          %option{value: "7"} 1986
-          %option{value: "8"} 1987
-          %option{value: "9"} 1988
-          %option{value: "10"} 1989
-          %option{value: "11"} 1990
-          %option{value: "12"} 1991
-          %option{value: "13"} 1992
-          %option{value: "14"} 1993
-          %option{value: "15"} 1994
-          %option{value: "16"} 1995
-          %option{value: "17"} 1996
-          %option{value: "18"} 1997
-          %option{value: "19"} 1998
-          %option{value: "20"} 1999
-          %option{value: "21"} 2000
-          %option{value: "22"} 2001
-          %option{value: "23"} 2002
-          %option{value: "24"} 2003
-          %option{value: "25"} 2004
-          %option{value: "26"} 2005
-          %option{value: "27"} 2006
-          %option{value: "28"} 2007
-          %option{value: "29"} 2008
-          %option{value: "30"} 2009
-        年
+      .user-info-wrapper__main__title
+        パスワード
+        %span{class: "must"} 必須
+      = f.password_field :password, {class: "user-info-wrapper__main__text", placeholder: "7文字以上の半角英数字"}
+      
+      .user-info-wrapper__main__title
+        パスワード(確認)
+        %span{class: "must"} 必須
+      = f.password_field :password_confirmation, {class: "user-info-wrapper__main__text", placeholder: "7文字以上の半角英数字"}
+      
+      .user-info-wrapper__main__title
+        お名前(全角)
+        %span{class: "must"} 必須
+        .flexbox
+          = f.text_field :firstname, {class: "user-info-wrapper__main__text text-half", placeholder: "例)山田"}
+          = f.text_field :lastname , {class: "user-info-wrapper__main__text text-half", placeholder: "例)太郎"}
+      
+      .user-info-wrapper__main__title
+        お名前カナ(全角)
+        %span{class: "must"} 必須
+        .flexbox
+          = f.text_field :firstname_kana, {class: "user-info-wrapper__main__text text-half", placeholder: "例)ヤマダ"}
+          = f.text_field :lastname_kana , {class: "user-info-wrapper__main__text text-half", placeholder: "例)タロウ"}
+      
+      .user-info-wrapper__main__title
+        生年月日
+        %span{class: "must"} 必須
+        .flexbox
+          - year = ["--"]
+          - for num in 0..120
+            - year << 2020-num
+          = f.select :birth_year, year, {}, class: "user-info-wrapper__main__select three-select"
+          年
+          - month = ["--"]
+          - for num in 1..12
+            - month << num
+          = f.select :birth_month, month, {}, class: "user-info-wrapper__main__select three-select"
+          月
+          - day = ["--"]
+          - for num in 1..31
+            - day << num
+          = f.select :birth_day, day, {}, class: "user-info-wrapper__main__select three-select"
+          日
 
-        = f.select :birth_month, month, {}, class: "new_session-wrapper__main__select three-select"
-          %option{value: "0"} --
-          %option{value: "1"} 1
-          %option{value: "2"} 2
-          %option{value: "3"} 3
-          %option{value: "4"} 4
-          %option{value: "5"} 5
-          %option{value: "6"} 6
-          %option{value: "7"} 7
-          %option{value: "8"} 8
-          %option{value: "9"} 9
-          %option{value: "10"} 10
-          %option{value: "11"} 11
-          %option{value: "12"} 12
-        月
-        = f.select :birth_day, day, {}, class: "new_session-wrapper__main__select three-select"
-          %option{value: "0"} --
-          %option{value: "1"} 1
-          %option{value: "2"} 2
-          %option{value: "3"} 3
-          %option{value: "4"} 4
-          %option{value: "5"} 5
-          %option{value: "6"} 6
-          %option{value: "7"} 7
-          %option{value: "8"} 8
-          %option{value: "9"} 9
-          %option{value: "10"} 10
-          %option{value: "11"} 11
-          %option{value: "12"} 12
-          %option{value: "13"} 13
-          %option{value: "14"} 14
-          %option{value: "15"} 15
-          %option{value: "16"} 16
-          %option{value: "17"} 17
-          %option{value: "18"} 18
-          %option{value: "19"} 19
-          %option{value: "20"} 20
-          %option{value: "21"} 21
-          %option{value: "22"} 22
-          %option{value: "23"} 23
-          %option{value: "24"} 24
-          %option{value: "25"} 25
-          %option{value: "26"} 26
-          %option{value: "27"} 27
-          %option{value: "28"} 28
-          %option{value: "29"} 29
-          %option{value: "30"} 30
-          %option{value: "31"} 31
-        日    
-    .user-info-wrapper__main__title
-      電話番号
-      %span{class: "must"} 必須
-    =f.text_field :phone_number, {class: "user-info-wrapper__main__text", placeholder: "ハイフンなし10~11桁"}
-    
-    .user-info-wrapper__main__caution
-      ※本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-    =f.submit "次へ進む", class: "user-info-wrapper__main__btn"
+      .user-info-wrapper__main__title
+        電話番号
+        %span{class: "must"} 必須
+      =f.text_field :phone_number, {class: "user-info-wrapper__main__text", placeholder: "ハイフンなし10~11桁"}
+      
+      .user-info-wrapper__main__caution
+        ※本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+      =f.submit "次へ進む", class: "user-info-wrapper__main__btn"
