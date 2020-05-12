@@ -35,7 +35,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       session["devise.regist_data"]["user"].clear
       sign_in(:user, @user)
     else
-      render :new_address
+      render :address_registration
     end
   end
 
