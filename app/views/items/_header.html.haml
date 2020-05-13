@@ -18,9 +18,17 @@
           = link_to "#" do
             ブランド
       %ul.header__inner__nav__right
-        %li.header__inner__nav__right__login
-          = link_to new_user_session_path do
-            ログイン
-        %li.header__inner__nav__right__new
-          = link_to new_user_registration_path do
-            新規会員登録
+        -if user_signed_in?
+          %li.header__inner__nav__right__login
+            = link_to destroy_user_session_path, method: :delete do
+              ログアウト
+          %li.header__inner__nav__right__new
+            = link_to user_path(current_user) do
+              マイページ
+        -else
+          %li.header__inner__nav__right__login
+            = link_to new_user_session_path do
+              ログイン
+          %li.header__inner__nav__right__new
+            = link_to new_user_registration_path do
+              新規会員登録
