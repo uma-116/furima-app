@@ -7,10 +7,13 @@ class CreditCardsController < ApplicationController
     # 上記はuer機能実装後に設定予定
   end
 
-  def pay #payjpとCardのデータベース作成
+  def pay #payjpとCreditCardのデータベース作成
     Payjp.api_key = Rails.application.credentials[:PAYJP_ACCESS_KEY]
 
     #保管した顧客IDでpayjpから情報取得
+    if params['payjp-token'].blank?
+      redirect_to action: "new"
+    else
       customer = Payjp::Customer.create(
         card: params['payjp-token'],
         metadata: {user_id: 1}
@@ -22,6 +25,7 @@ class CreditCardsController < ApplicationController
         redirect_to pay_cards_path
     end
   end
+end
 
   def show #Cardのデータpayjpに送り情報を取り出す
     card = CreditCard.find_by(user_id: 1)
