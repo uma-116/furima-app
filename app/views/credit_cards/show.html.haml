@@ -25,8 +25,18 @@
         支払い方法
       .container__main__right-box__inner
         .container__main__right-box__inner__title
-          クレジットカード一覧
-        .container__main__right-box__inner__add-card
-          =link_to "/credit_cards/new", class: "container__main__right-box__add-card__btn" do
-            クレジットカードを追加する 
+          登録済みクレジットカード
+        .container__main__right-box__inner__registered-credit-card
+          = image_tag asset_path("#{@card_src}"), width: '60', height: '40', alt: @card_brand, id: "card_image"
+          %br
+          = "**** **** **** " + @default_card_information.last4
+          %br
+          %p
+            - exp_month = @default_card_information.exp_month.to_s
+            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+            = exp_month + " / " + exp_year
+            / credit_card_pathはuer機能実装後にcard_path(current_user.id)に変更
+          = form_tag(credit_card_path, method: :delete, id: 'charge-form',  name: "inputForm") do
+            %input{ type: "hidden", name: "card_id", value: "" }
+            %button.delete-btn 削除する
   = render "items/footer"
