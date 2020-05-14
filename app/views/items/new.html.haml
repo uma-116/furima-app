@@ -6,9 +6,8 @@
     = render "header"
     .content
       .content__main 
-        -# @userの部分は後でモデルクラスのインスタンスに変更        
+        = render partial: "form"
         = form_with model: @item, local: true do |f|
- 
           .content__main__item-image-box
             .text-bold
               出品画像

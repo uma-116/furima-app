@@ -4,18 +4,22 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @item.images.new
+
   end
 
   def create
-    Item.create(item_params)
-     #とりあえずリダイレクト先をトップページに設定
-    redirect_to root_path
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   private
   def item_params
-    # :user_id, :category_idの２つはテスト用なので後で削除
-    params.require(:item).permit(:user_id, :category_id, :name, :detail, :condition, :postage, :ship_from, :ship_date, :price)
+    params.require(:item).permit( :name, :detail, :condition, :postage, :ship_from, :ship_date, :price, images_attributes: [:img])
   end
 
 
