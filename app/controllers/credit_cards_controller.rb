@@ -3,7 +3,7 @@ class CreditCardsController < ApplicationController
 
   def new
     card = CreditCard.where(user_id: 1) 
-    # redirect_to "/credit_cards/show"  if card.exists?
+    # redirect_to credit_card_path  if card.exists?
     # 上記はuer機能実装後に設定予定
   end
 
@@ -12,7 +12,7 @@ class CreditCardsController < ApplicationController
 
     #保管した顧客IDでpayjpから情報取得
     if params['payjp-token'].blank?
-      redirect_to action: "new"
+      redirect_to new_credit_card_path
     else
       customer = Payjp::Customer.create(
         card: params['payjp-token'],
@@ -22,7 +22,7 @@ class CreditCardsController < ApplicationController
       if @card.save
         redirect_to "/credit_cards/show"
       else
-        redirect_to pay_cards_path
+        redirect_to pay_credit_cards_path
     end
   end
 end
@@ -30,7 +30,7 @@ end
   def show #Cardのデータpayjpに送り情報を取り出す
     card = CreditCard.find_by(user_id: 1)
     if card.blank?
-      redirect_to new_card_path 
+      redirect_to new_credit_card_path
     else
       Payjp.api_key = Rails.application.credentials[:PAYJP_ACCESS_KEY]
       customer = Payjp::Customer.retrieve(card.customer_id)
