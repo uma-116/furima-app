@@ -12,6 +12,12 @@ Rails.application.routes.draw do
   root 'items#index'
 
   resources :items, only: [:new, :create]
+  
+  resources :items do
+    get "set_parents"
+    get "set_children"
+    get "set_grandchildren"
+  end
 
   resources :item_details, only: [:index, :edit, :update, :destroy]
 

@@ -16,7 +16,15 @@
           カテゴリー
         %th.main-wrapper__main-content__status__table__right
           = link_to "#" do
-            トップス
+            レディス
+          -# Itemモデル生成後、以下コメントアウト外す
+            -# = @item.category.parent.parent.name
+            -# %br
+            -# %i{class: "fas fa-chevron-right"}
+            -# = @item.category.parent.name
+            -# %br
+            -# %i{class: "fas fa-chevron-right"}
+            -# = @item.category.name
       %tr.main-wrapper__main-content__status__table
         %td.main-wrapper__main-content__status__table__left
           ブランド
