@@ -1,0 +1,32 @@
+= render "items/header"
+.container
+  .container__main
+    .container__main__left
+      .container__main__left__list
+        = link_to "#" do
+          マイページ
+      .container__main__left__list
+        = link_to "#" do
+          出品する
+      .container__main__left__list
+        = link_to "#" do
+          出品した商品
+      .container__main__left__list
+        = link_to "#" do
+          購入した商品
+      .container__main__left__list
+        = link_to "/credit_cards/show" do
+          支払い方法
+      .container__main__left__list
+        = link_to "#" do
+          ログアウト
+    .container__main__right-box
+      .container__main__right-box__payment
+        支払い方法
+      .container__main__right-box__inner
+        .container__main__right-box__inner__title
+          クレジットカード一覧
+        .container__main__right-box__inner__add-card
+          =link_to "/credit_cards/new", class: "container__main__right-box__add-card__btn" do
+            クレジットカードを追加する 
+  = render "items/footer"
