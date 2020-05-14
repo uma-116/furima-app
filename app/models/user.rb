@@ -7,7 +7,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :firstname , :lastname, :firstname_kana, :lastname_kana, :nickname, :birth_year, :birth_month, :birth_day, :phone_number, presence: true
+  validates :firstname , :lastname, :firstname_kana, :lastname_kana, :nickname, :email, :birth_year, :birth_month, :birth_day, :phone_number, presence: true
   validates :phone_number, uniqueness: true
 
   validates :firstname     , format: {with: /\A[ぁ-んァ-ン一-龥]/}

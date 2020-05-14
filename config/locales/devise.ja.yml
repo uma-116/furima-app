@@ -27,8 +27,8 @@ ja:
         updated_at: 更新日
         firstname: 名前
         lastname: 苗字
-        firstname_kana: 名前（かな）
-        lastname_kana: 苗字（かな）
+        firstname_kana: 名前（カナ）
+        lastname_kana: 苗字（カナ）
         birth_year: 生年月日（年）
         birth_month: 生年月日（月）
         birth_day: 生年月日（日）
