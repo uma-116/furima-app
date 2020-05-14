@@ -27,6 +27,19 @@ class CreditCardsController < ApplicationController
   end
 end
 
+  def destroy #PayjpとCardデータベースを削除
+    card = CreditCard.find_by(user_id: 1)
+    if card.blank?
+    else
+      Payjp.api_key = Rails.application.credentials[:PAYJP_ACCESS_KEY]
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      customer.delete
+      card.delete
+    end
+      redirect_to new_credit_card_path
+  end
+
+
   def show #Cardのデータpayjpに送り情報を取り出す
     card = CreditCard.find_by(user_id: 1)
     if card.blank?
@@ -35,6 +48,21 @@ end
       Payjp.api_key = Rails.application.credentials[:PAYJP_ACCESS_KEY]
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
+      @card_brand = @default_card_information.brand      
+      case @card_brand
+      when "Visa"
+        @card_src = "visa.svg"
+      when "JCB"
+        @card_src = "jcb.svg"
+      when "MasterCard"
+        @card_src = "master-card.svg"
+      when "American Express"
+        @card_src = "american_express.svg"
+      when "Diners Club"
+        @card_src = "dinersclub.svg"
+      when "Discover"
+        @card_src = "discover.svg"
+      end
     end
   end
 end
