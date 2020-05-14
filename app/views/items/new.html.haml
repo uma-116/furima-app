@@ -6,7 +6,6 @@
     = render "header"
     .content
       .content__main 
-        = render partial: "form"
         = form_with model: @item, local: true do |f|
           .content__main__item-image-box
             .text-bold
@@ -14,8 +13,8 @@
               %span.required
                 必須
             最大10枚までアップロードできます
-            -# カラム名(itemimage)は後で変更
-            = f.file_field :itemimage
+            = f.fields_for :images do |i|
+              = i.file_field :img
                           
           .content__main__item-name-box
             .text-bold
@@ -40,10 +39,7 @@
             = f.select :category_id, [['レディース', 1], ['メンズ', 2], ['ベビー・キッズ', 3], ['インテリア・住まい・小物', 4], ['本・音楽・ゲーム', 5], ['おもちゃ・ホビー・グッズ', 6], ['コスメ・香水・美容', 7], ['家電・スマホ・カメラ', 8], ['スポーツ・レジャー', 9], ['ハンドメイド', 10], ['チケット', 11], ['自動車・オートバイ', 12], ['その他', 13]], {prompt: "選択してください"}, {class: "content__main__item-info-box__category"} 
             .text-bold
               ブランド
-            -# カラム名(brand)は後で変更
             = f.text_field :brand, class:"content__main__item-info-box__brand-field", placeholder: "例）シャネル"
-            -# 下の１行はテスト用なので、あとで削除
-            = f.text_field :user_id, class:"content__main__item-info-box__brand-field", placeholder: "ユーザーid仮入力"
 
             .text-bold
               商品の状態
