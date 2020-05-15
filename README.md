@@ -62,7 +62,6 @@
 |postage|string|null: false|
 |ship_from|string|null: false|
 |ship_date|string|null: false|
-|ship_method|string|null: false|
 |condition|string|null:false|
 |brand|string| |
 |user_id|integer|null: false, foreign_key: true|
@@ -74,7 +73,7 @@
 - belongs_to :category
 <!-- - belongs_to :brand -->
 
-<!-- itemsテーブルに配送方法 : ship_method, 商品状態 : condition を追記, brandを一時的に直接入力とするために、brandカラムを仮置き -->
+<!-- itemsテーブルに商品状態 : condition を追記, brandを一時的に直接入力とするために、brandカラムを仮置きし、コメントアウト -->
 
 ## imagesテーブル
 |Column|Type|Options|
