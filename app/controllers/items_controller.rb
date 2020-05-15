@@ -9,10 +9,17 @@ class ItemsController < ApplicationController
     @item = Item.new(set_params)
   end
 
+  def show
+    @item = Item.find(params[:id])
+  end
 
   private
   def set_params
     params.require(:item).permit(:category).merge(user_id: current_user.id)
+  end
+
+  def item_params
+    params.require(:item).permit(:item_id)
   end
 
   def set_parents

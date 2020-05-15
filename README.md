@@ -62,15 +62,19 @@
 |postage|string|null: false|
 |ship_from|string|null: false|
 |ship_date|string|null: false|
+|ship_method|string|null: false|
+|condition|string|null:false|
+|brand|string| |
 |user_id|integer|null: false, foreign_key: true|
 |category_id|integer|null: false, foreign_key: true|
-|brand_id|integer|foreign_key: true|
+<!-- |brand_id|integer|foreign_key: true| -->
 ### Association
 - belongs_to :user
 - has_many :imgs
 - belongs_to :category
-- belongs_to :brand
+<!-- - belongs_to :brand -->
 
+<!-- itemsテーブルに配送方法 : ship_method, 商品状態 : condition を追記, brandを一時的に直接入力とするために、brandカラムを仮置き -->
 
 ## imagesテーブル
 |Column|Type|Options|
@@ -90,9 +94,9 @@
 - has_many :items
 
 
-## brandsテーブル
+<!-- ## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null:false|
 ### Association
-- has_many :items
+- has_many :items -->
