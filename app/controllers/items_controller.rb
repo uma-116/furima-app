@@ -21,9 +21,17 @@ class ItemsController < ApplicationController
   def edit
   end
 
+  def show
+    @item = Item.includes([:user, :image, :category]).find(params[:id])
+  end
+
   private
   def item_params
     params.require(:item).permit( :name, :detail, :condition, :postage, :ship_from, :ship_date, :price, images_attributes: [:img])
+  end
+
+  def item_params
+    params.require(:item).permit(:item_id)
   end
 
   def set_parents
