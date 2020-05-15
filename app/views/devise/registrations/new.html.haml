@@ -1,12 +1,14 @@
-= form_with model: @user,url: user_registration_path do |f|
+= form_with model: @user,url: user_registration_path, local: true do |f|
+  
   .user-info-wrapper
     .user-info-wrapper__logo
       = link_to root_path, class: 'user-info-wrapper__logo--link' do
         = image_tag asset_path("logo.png"), size: "185x49"
-
+        =render "devise/shared/error_messages", resource: resource
     .user-info-wrapper__main
       .user-info-wrapper__main__head
         会員情報入力
+          
     .user-info-wrapper__main
       .user-info-wrapper__main__title
         ニックネーム
