@@ -28,3 +28,5 @@
 
 # 無駄に画像がUPされるのを防ぐため
 public/uploads/*
+
+/app/assets/images

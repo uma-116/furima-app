@@ -23,7 +23,7 @@
 |birth_year|date|null: false|
 |birth_month|date|null: false|
 |birth_day|date|null: false|
-|phone_number|integer|null: false|
+|phone_number|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
@@ -33,7 +33,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |postal_code|integer|null: false|
-|prefecture|integer|null: false|
+|prefecture|string|null: false|
 |city|string|null: false|
 |address|string|null: false|
 |apartment_name|string| |
@@ -46,11 +46,9 @@
 ## credit_cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|credit_number|integer|null: false, unique: true|
-|expiration_year|integer|null: false|
-|expiration_month|integer|null: false|
-|security_code|integer|null: false|
 |user_id|integer|null: false, foreign_key:true|
+|customer_id|integer|null: false|
+|card_id|integer|null: false|
 ### Association
 - belongs_to :user
 
@@ -88,7 +86,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|ancestry|integer| |
+|ancestry|string| |
 ### Association
 - has_many :items
 

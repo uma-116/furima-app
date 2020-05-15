@@ -1,0 +1,65 @@
+.main
+  .main__inner
+    %h2.main__inner__title
+      購入内容の確認
+    %section.main__inner__select-item
+      .main__inner__select-item__inner
+        .main__inner__select-item__inner__item-box
+          %h3.main__inner__select-item__inner__item-box__image
+            = image_tag asset_path("product1.png"), alt: "ICON"
+          .main__inner__select-item__inner__item-box__detail
+            %p.main__inner__select-item__inner__item-box__detail__name
+              カレーライス（激辛）
+            %p.main__inner__select-item__inner__item-box__detail__price
+              %span
+                ¥10000
+              %span.main__inner__select-item__inner__item-box__detail__price__shipping-fee
+                （税込）送料込み
+      
+    %section.main__inner__purchase-info
+      .main__inner__purchase-info__inner
+        %form{action: "#"}
+          .main__inner__purchase-info__inner__price-box
+            .main__inner__purchase-info__inner__price-box__label
+              支払い金額
+            .main__inner__purchase-info__inner__price-box__amount-money
+              ¥10000
+          .main__inner__purchase-info__inner__credit-card-info
+            .main__inner__purchase-info__inner__credit-card-info__content
+              %h3.main__inner__purchase-info__inner__credit-card-info__content__label
+                支払い方法
+              .main__inner__purchase-info__inner__credit-card-info__content__change-btn
+                = link_to "#" do
+                  %span
+                    変更する
+            %p.main__inner__purchase-info__inner__credit-card-info__detail
+              クレジットカード
+              %br
+              ************7777
+              %br
+              有効期限 04 / 24
+            .main__inner__purchase-info__inner__credit-card-info__logo
+              = image_tag asset_path("master-card.svg"), size: "34x20", alt: "ICON" 
+
+          .main__inner__purchase-info__inner__delivery-info
+            .main__inner__purchase-info__inner__delivery-info__content
+              %h3.main__inner__purchase-info__inner__delivery-info__content__label
+                配送先
+              .main__inner__purchase-info__inner__delivery-info__content__change-btn
+                = link_to "#" do
+                  %span
+                    変更する
+            %p.main__inner__purchase-info__inner__delivery-info__detail
+              〒777-7777
+              %br
+              東京都div区div町7-7-7
+              %br
+              木村政明
+
+          .main__inner__purchase-info__inner__last-content
+            %p.main__inner__purchase-info__inner__last-content__delivery-guide
+              郵便局/コンビニ受取をご希望の方は、購入後に取引画面から受取場所を変更をすることが可能です。
+              出品者が発送作業を開始した後は受取場所の変更ができませんので、早めに変更を行ってください。          
+            .main__inner__purchase-info__inner__last-content__purchase-btn
+              %button{type: "submit"}
+                購入する

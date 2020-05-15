@@ -3,12 +3,12 @@
     .header__inner__main
       %h1.header__inner__main__icon
         = link_to "#" do
-          = image_tag "header_log", size: "140x41", alt: "ICON" 
+          = image_tag asset_path("header_log.svg"), size: "140x41", alt: "ICON" 
       .header__inner__main__search-box
         %form{action: "#"}
           %input{placeholder: "キーワードから探す", type: "seach"}/          
           %button{type: "submit"}
-            = image_tag "icon-search", size: "20x20", alt: "ICON" 
+            = image_tag asset_path("icon-search.svg"), size: "20x20", alt: "ICON" 
     .header__inner__nav
       %ul.header__inner__nav__left
         %li.header__inner__nav__left__category
@@ -18,9 +18,17 @@
           = link_to "#" do
             ブランド
       %ul.header__inner__nav__right
-        %li.header__inner__nav__right__login
-          = link_to "#" do
-            ログイン
-        %li.header__inner__nav__right__new
-          = link_to "#" do
-            新規会員登録
+        -if user_signed_in?
+          %li.header__inner__nav__right__login
+            = link_to destroy_user_session_path, method: :delete do
+              ログアウト
+          %li.header__inner__nav__right__new
+            = link_to user_path(current_user) do
+              マイページ
+        -else
+          %li.header__inner__nav__right__login
+            = link_to new_user_session_path do
+              ログイン
+          %li.header__inner__nav__right__new
+            = link_to new_user_registration_path do
+              新規会員登録

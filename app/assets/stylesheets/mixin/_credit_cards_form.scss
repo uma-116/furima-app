@@ -1,0 +1,15 @@
+@mixin credit_cards_form() {
+  display: flex;
+  margin-bottom: 10px;
+  &__require {
+    font-size: 15px;
+    background-color: #3CCACE;
+    color: white;
+    border-radius: 5px;
+    margin-left: 15px;
+    padding: 0 5px 0 5px;
+    height: 25px;
+    width: 40px;
+    line-height: 25px;
+  }
+}

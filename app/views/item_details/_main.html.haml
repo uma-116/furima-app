@@ -1,0 +1,72 @@
+.main-wrapper
+  %h1.main-wrapper__title
+    ユニクロ セーター
+  .main-wrapper__main-content
+    .main-wrapper__main-content__image
+      ここに画像を表示
+    %table.main-wrapper__main-content__status
+      %tr.main-wrapper__main-content__status__table
+        %td.main-wrapper__main-content__status__table__left
+          出品者
+        %th.main-wrapper__main-content__status__table__right
+          = link_to "#" do
+            user
+      %tr.main-wrapper__main-content__status__table
+        %td.main-wrapper__main-content__status__table__left
+          カテゴリー
+        %th.main-wrapper__main-content__status__table__right
+          = link_to "#" do
+            レディス
+          -# Itemモデル生成後、以下コメントアウト外す
+            -# = @item.category.parent.parent.name
+            -# %br
+            -# %i{class: "fas fa-chevron-right"}
+            -# = @item.category.parent.name
+            -# %br
+            -# %i{class: "fas fa-chevron-right"}
+            -# = @item.category.name
+      %tr.main-wrapper__main-content__status__table
+        %td.main-wrapper__main-content__status__table__left
+          ブランド
+        %th.main-wrapper__main-content__status__table__right
+          = link_to "#" do
+            ユニクロ
+      %tr.main-wrapper__main-content__status__table
+        %td.main-wrapper__main-content__status__table__left
+          商品の状態
+        %th.main-wrapper__main-content__status__table__right
+          新品、未使用
+      %tr.main-wrapper__main-content__status__table
+        %td.main-wrapper__main-content__status__table__left
+          配送料の負担
+        %th.main-wrapper__main-content__status__table__right
+          送料込み（出品者負担）
+      %tr.main-wrapper__main-content__status__table
+        %td.main-wrapper__main-content__status__table__left
+          配送の方法
+        %th.main-wrapper__main-content__status__table__right
+          クロネコヤマト
+      %tr.main-wrapper__main-content__status__table
+        %td.main-wrapper__main-content__status__table__left
+          配送元地域
+        %th.main-wrapper__main-content__status__table__right
+          東京都
+      %tr.main-wrapper__main-content__status__table
+        %td.main-wrapper__main-content__status__table__left
+          発送の目安
+        %th.main-wrapper__main-content__status__table__right
+          １〜２日で発送
+
+  .main-wrapper__price
+    %span.main-wrapper__price__item
+      ¥1,800
+    %span.main-wrapper__price__tax
+      (税込み)
+    %span.main-wrapper__price__postage-side
+      送料込み
+  .main-wrapper__buy-btn
+    %a{ href: '#', id: 'btn' }
+      購入する
+  .main-wrapper__description
+    %p.main-wrapper__description__inner
+      数年前に購入した商品です！使用しないので出品します。

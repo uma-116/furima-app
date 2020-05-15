@@ -1,0 +1,88 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: rgb(243, 241, 241);
+  font-size: 14px;
+  color: #333;
+  margin: 0 auto;
+}
+
+a{
+  color: #000;
+  text-decoration: none;
+}
+
+.container{
+  &__main{
+    width: 1020px;
+    margin: 80px auto 80px;
+    display: flex;
+    &__left{
+      float: left;
+      width: 280px;
+      margin:0 40px 0 0;
+      &__list{
+        height: 81px;
+        line-height: 81px;
+        padding-left: 16px;
+        background-color: #fafafa;
+        font-size: 14px;
+        border:1px solid rgb(243, 241, 241);
+      }
+    }
+    
+    &__right-box{
+      float: right;
+      width: 700px;
+      position: relative;
+      background-color: #fafafa;
+      &__payment{
+        font-size: 24px;
+        padding: 8px 24px;
+        border-bottom: 2px solid rgb(243, 241, 241);
+        text-align: center;
+      }
+      &__inner{
+        height: 350px;
+        padding: 70px;
+        border-bottom: 2px solid rgb(243, 241, 241);
+        text-align: center;
+        &__title{
+          font-size: 20px;
+          font-weight: bold;
+        }
+        &__registered-credit-card{
+          margin: 20px 120px 0 0;
+          font-size: 16px;
+          p {
+            position: relative;
+            margin-right: 70px;
+            padding-top: 10px;
+          }
+         button {
+          position: absolute;
+          top: 210px;
+          right: 230px;
+          background-color: #3CCACE;
+          color: white;
+          height: 35px;
+          border-radius: 5px;
+          font-size: 14px;
+          font-weight: bold;
+         } 
+         img {
+           margin-right: 70px;
+           margin-bottom: 10px;
+         }
+        }
+          a{
+            font-size: 16px;
+            color: #fff;
+            text-decoration: none;
+          }
+      }  
+    }
+  }
+}

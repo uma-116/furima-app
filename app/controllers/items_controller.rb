@@ -26,5 +26,16 @@ class ItemsController < ApplicationController
     params.require(:item).permit( :name, :detail, :condition, :postage, :ship_from, :ship_date, :price, images_attributes: [:img])
   end
 
+  def set_parents
+    @parents  = Category.where(ancestry: nil)
+  end
+
+  def set_children
+    @children = Category.where(ancestry: params[:parent_id])
+  end
+
+  def set_grandchildren
+    @grandchildren = Category.where(ancestry: params[:ancestry])
+  end
 
 end
