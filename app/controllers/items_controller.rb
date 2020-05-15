@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   def index
+    @items = Item.includes(:images).order('created_at DESC')
   end
 
   def new
@@ -15,6 +16,9 @@ class ItemsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
   end
 
   private

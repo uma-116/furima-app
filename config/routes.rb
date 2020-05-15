@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'items#index'
   
-  resources :items, except: :show
+  resources :items, only: [:index, :new, :create, :edit]
 
   resources :item_details, only: [:index, :edit, :update, :destroy]
   
