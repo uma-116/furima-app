@@ -1,5 +1,11 @@
 .wrapper
- = render "header"
- = render "main"
- = render "app-banner"
- = render "footer"
+  = render "header"
+  = render "main"
+  = render "app-banner"
+  = render "footer"
+/　以下テスト用  
+/  = link_to new_item_path do
+/    出品
+/    %br
+/    .contents
+/      = render @items, collection: @items
