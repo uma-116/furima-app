@@ -25,4 +25,8 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# 無駄に画像がUPされるのを防ぐため
+public/uploads/*
+
 /app/assets/images
