@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.includes([:user, :image, :category]).find(params[:id])
+    @item = Item.includes([:user, :images, :category]).find(params[:id])
   end
 
   private
