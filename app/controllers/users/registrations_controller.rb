@@ -37,6 +37,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       render :address_registration
     end
+
+    def show
+      
+    end
   end
 
   protected

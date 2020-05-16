@@ -1,6 +1,6 @@
 class PurchasesController < ApplicationController
   require 'payjp'#Payjpの読み込み
-  before_action :set_card  #itemテーブル実装後に実装:set_itemを追加
+  before_action :set_card, :set_item
 
   def index
     if @card.blank?
@@ -33,7 +33,7 @@ class PurchasesController < ApplicationController
   def pay
     Payjp.api_key = Rails.application.credentials[:PAYJP_ACCESS_KEY]
     Payjp::Charge.create(
-      :amount => 10000, #itemテーブル実装後に@item.priceに変更
+      :amount => @item.price, #価格を取得
       :customer => @card.customer_id,  #顧客ID
       :currency => 'jpy',              #日本円
     )
@@ -43,11 +43,10 @@ class PurchasesController < ApplicationController
   private
 
   def set_card
-    @card = CreditCard.find_by(user_id: 1) ###user機能実装後current_user.id"に変更
+    @card = CreditCard.find_by(user_id: current_user.id) 
   end
   
-  #itemテーブル実装後に実装
-  # def set_item
-  #   @item = Item.find(params[:item_id])
-  # end
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
 end
