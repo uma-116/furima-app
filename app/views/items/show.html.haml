@@ -18,15 +18,13 @@
           カテゴリー
         %th.main-wrapper__main-content__status__table__right
           = link_to "#" do
+            = @item.category.parent.parent.name
+            %br
+            %i{class: "fas fa-chevron-right"}
+            = @item.category.parent.name
+            %br
+            %i{class: "fas fa-chevron-right"}
             = @item.category.name
-          -# Itemモデル生成後、以下コメントアウト外す
-          -# = @item.category.parent.parent.name
-          -# %br
-          -# %i{class: "fas fa-chevron-right"}
-          -# = @item.category.parent.name
-          -# %br
-          -# %i{class: "fas fa-chevron-right"}
-          -# = @item.category.name
       %tr.main-wrapper__main-content__status__table
         %td.main-wrapper__main-content__status__table__left
           ブランド
@@ -58,7 +56,7 @@
     %span.main-wrapper__price__icon
       ¥
     %span.main-wrapper__price__item
-      = @item.price
+      = @item.price.to_s(:delimited)
     %span.main-wrapper__price__tax
       (税込み)
     %span.main-wrapper__price__postage-side
