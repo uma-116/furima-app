@@ -23,7 +23,7 @@
 |birth_year|date|null: false|
 |birth_month|date|null: false|
 |birth_day|date|null: false|
-|phone_number|integer|null: false|
+|phone_number|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
@@ -33,7 +33,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |postal_code|integer|null: false|
-|prefecture|integer|null: false|
+|prefecture|string|null: false|
 |city|string|null: false|
 |address|string|null: false|
 |apartment_name|string| |
@@ -46,11 +46,9 @@
 ## credit_cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|credit_number|integer|null: false, unique: true|
-|expiration_year|integer|null: false|
-|expiration_month|integer|null: false|
-|security_code|integer|null: false|
 |user_id|integer|null: false, foreign_key:true|
+|customer_id|integer|null: false|
+|card_id|integer|null: false|
 ### Association
 - belongs_to :user
 
@@ -60,19 +58,23 @@
 |------|----|-------|
 |name|string|null: false|
 |detail|text|null: false|
+|condition|string||null: false|
 |price|integer|null: false|
 |postage|string|null: false|
 |ship_from|string|null: false|
 |ship_date|string|null: false|
+|condition|string|null:false|
+|brand|string| |
 |user_id|integer|null: false, foreign_key: true|
 |category_id|integer|null: false, foreign_key: true|
-|brand_id|integer|foreign_key: true|
+<!-- |brand_id|integer|foreign_key: true| -->
 ### Association
 - belongs_to :user
-- has_many :imgs
+- has_many :images
 - belongs_to :category
-- belongs_to :brand
+<!-- - belongs_to :brand -->
 
+<!-- itemsテーブルに商品状態 : condition を追記, brandを一時的に直接入力とするために、brandカラムを仮置きし、コメントアウト -->
 
 ## imagesテーブル
 |Column|Type|Options|
@@ -92,9 +94,9 @@
 - has_many :items
 
 
-## brandsテーブル
+<!-- ## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null:false|
 ### Association
-- has_many :items
+- has_many :items -->

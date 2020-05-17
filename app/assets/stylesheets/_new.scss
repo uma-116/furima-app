@@ -3,7 +3,6 @@
 }
 
 body {
-  background-color: #f0f0f0;
   font-size: 14px;
   color: #333;
   margin: 0 auto;
@@ -18,12 +17,6 @@ a{
   color: #0095ee;
 }
 
-/*.header{
- * background-color: #f8f8f8;
- * height: 100px;
- * width: 100vw;
- * }
- */
 
 .text-bold{
   font-weight: bold;
@@ -48,6 +41,7 @@ $main-border-bottom: 1px solid grey;
 
 .content {
   background-color: #f8f8f8;
+  border-top: 1px solid #f8f8f8;
   &__main{
     background-color: white;
     width: 700px;
@@ -219,11 +213,3 @@ $main-border-bottom: 1px solid grey;
     }
   }               
 }
-
-/*.footer{
- * background-color: #272727;
- * height: 100px;
- * width: 100vw;
-*  }
-*/
-

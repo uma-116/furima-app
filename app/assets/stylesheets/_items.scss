@@ -15,9 +15,8 @@ html {
 
 .header {
   background-color: #FFF;
-  height: 97px;
+  height: 107px;
   padding: 0 60px;
-  margin-bottom: 10px;
   &__inner {
     max-width: 1040px;
     width: 100%;
@@ -451,4 +450,117 @@ html {
   p {
     font-size: 14px;
   }
+}
+
+
+.wrapper {
+  background-color: #f5f5f5;
+  height: 100%;
+}
+
+.main-wrapper {
+  background-color: #ffffff;
+  margin: 40px auto;
+  padding: 24px 40px 40px;
+  width: 700px;
+  box-sizing: border-box;
+  color: #333;
+
+  &__title {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  &__main-content {
+    margin: 16px 0px 0px;
+    display: flex;
+    justify-content: space-between;
+
+    &__image {
+      background-color: #fafafa;
+      width: 300px;
+      height: 375px;
+      text-align: center;
+      line-height: 200px;
+      font-weight: 600;
+    }
+
+    &__status {
+      width: 100%;
+      max-width: 300px;
+      height: 420px;
+      margin: 0 auto;
+
+        &__table {
+          border: 1px solid #f5f5f5;
+          font-size: 14px;
+          
+          &__left {
+            text-align: left;
+            width: 39%;
+            font-weight: 400;
+            background-color: #fafafa;
+            padding: 8px;
+          }
+
+          &__right {
+            width: 61%;
+            background-color: #ffffff;
+            padding: 8px;
+        }
+      }
+    }
+  }
+  &__price {
+    margin-top: 24px;
+    text-align: center;
+    
+    &__icon {
+      font-size: 50px;
+      display: inline-block;
+    }
+
+    &__item {
+      font-size: 50px;
+    }
+
+    &__tax {
+      font-size: 10px;
+    }
+
+    &__postage-side {
+      font-size: 16px;
+    }
+  }
+
+  &__buy-btn {
+    display: block;
+    background-color: #3CCACE;
+    color: #ffffff;
+    font-size: 24px;
+    line-height: 60px;
+    margin-top: 16px;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  &__description {
+    padding: 24px 0px 0px;
+    line-height: 1.5;
+    font-size: 14px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  body {
+    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  }
+}
+
+#btn {
+  color: #ffffff;
 }
