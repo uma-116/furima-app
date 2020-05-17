@@ -17,7 +17,6 @@ a{
   color: #0095ee;
 }
 
-
 .text-bold{
   font-weight: bold;
   margin-bottom: 5px;
@@ -31,6 +30,7 @@ a{
   }
 
 
+
 $form-font-size: 18px;
 $form-padding: 5px;
 $main-padding: 40px 0 ;
@@ -42,18 +42,22 @@ $main-border-bottom: 1px solid grey;
 .content {
   background-color: #f8f8f8;
   border-top: 1px solid #f8f8f8;
+
   &__main{
     background-color: white;
     width: 700px;
     margin: 0 auto;
     padding: 20px;
+
     &__item-image-box{
       padding-bottom: $main-padding-bottom;
       border-bottom: $main-border-bottom;
     }
+
     &__item-name-box{
       padding: $main-padding;
       border-bottom: $main-border-bottom;
+
       &__item-name-field{
         width: 100%;
         font-size: $form-font-size;
@@ -61,6 +65,7 @@ $main-border-bottom: 1px solid grey;
         margin-bottom: 20px;
         padding: $form-padding;
       }
+
       &__item-exp-field{
         width: 100%;
         height: 200px;
@@ -72,15 +77,18 @@ $main-border-bottom: 1px solid grey;
     &__item-info-box{
       padding: $main-padding;
       border-bottom: $main-border-bottom;
+
       &__headline{
         margin-bottom: 10px;
       }
+
       &__category{
         width: 100%;
         height: 40px;
         font-size: $form-font-size;
         margin-bottom: 20px;
       }
+
       &__brand-field{
         width: 100%;
         font-size: $form-font-size;
@@ -88,6 +96,7 @@ $main-border-bottom: 1px solid grey;
         margin-bottom: 20px;
         padding: $form-padding;
       }
+
       &__item-status{
         width: 100%;
         height: 40px;
@@ -95,46 +104,55 @@ $main-border-bottom: 1px solid grey;
       }
     }
   
-
     &__delivery-box{
       padding: $main-padding;
       border-bottom: $main-border-bottom;
+
       &__headline{
         margin-bottom: 10px;
       }
+
       &__delivery-fee{
         width: 100%;
         height: 40px;
         font-size: $form-font-size;
         margin-bottom: 20px;
       }
+
       &__area{
         width: 100%;
         height: 40px;
         font-size: $form-font-size;
         margin-bottom: 20px;
       }
+
       &__days{
         width: 100%;
         height: 40px;
         font-size: $form-font-size;
       }
     }
+
     &__price-box{
       padding: $main-padding;
       border-bottom: $main-border-bottom;
+
       &__headline{
         margin-bottom: 10px;
       }
+
       &__inner{
         margin-bottom: 20px;
         display: flex;
         justify-content: space-between;
+
         &__left-box{
           width: 50%;
         }
+
         &__right-box{
           width: 50%;
+
           &__price{
             width: 100%;
             height: 40px;
@@ -143,6 +161,7 @@ $main-border-bottom: 1px solid grey;
           }
         }
       }
+
       &__fee-inner{
         width: 100%;
         height: 40px;
@@ -150,9 +169,11 @@ $main-border-bottom: 1px solid grey;
         line-height: 40px;
         display: flex;
         justify-content: space-between;
+
         &__left{
           // 未定
         }
+
         &__right{
           // 未定
         }
@@ -164,9 +185,11 @@ $main-border-bottom: 1px solid grey;
         line-height: 40px;
         display: flex;
         justify-content: space-between;
+
         &__left{
           // 未定
         }
+
         &__right{
           // 未定
         }
@@ -180,6 +203,7 @@ $main-border-bottom: 1px solid grey;
       text-align: center;
       display: flex;
       flex-direction: column;
+
       &__send-botton{
         color: white;
         background-color: red;
@@ -191,6 +215,7 @@ $main-border-bottom: 1px solid grey;
         border-radius: 8px;
         border: none;
       }
+
       &__draft-botton{
         background-color: #ccc;
         width: 50%;
@@ -200,7 +225,6 @@ $main-border-bottom: 1px solid grey;
         margin: 0 auto 20px;
         border-radius: 8px;
         border: none;
-
       }
       .back-bton{
         color: #0095ee;

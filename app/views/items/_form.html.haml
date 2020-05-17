@@ -1,6 +1,8 @@
 .content
   .content__main 
     = form_with model: @item, local: true do |f|
+      = render 'layouts/error_messages', model: f.object
+
       .content__main__item-image-box
         .text-bold
           出品画像
