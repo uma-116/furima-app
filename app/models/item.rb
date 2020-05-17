@@ -7,8 +7,8 @@ class Item < ApplicationRecord
 
   has_many :images
 
-#  user/categoryをコメントアウトしないとデータが保存できないため
-#  belongs_to :user
+# categoryをコメントアウトしないとデータが保存できないため
+  belongs_to :user
 #  belongs_to :category
 
   accepts_nested_attributes_for :images, allow_destroy: true
