@@ -1,7 +1,15 @@
 class Item < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture
+  belongs_to_active_hash :stats
+  belongs_to_active_hash :shipping
+  belongs_to_active_hash :fee
+
   has_many :images
-  belongs_to :user
-  belongs_to :category
+
+#  user/categoryをコメントアウトしないとデータが保存できないため
+#  belongs_to :user
+#  belongs_to :category
 
   accepts_nested_attributes_for :images, allow_destroy: true
 
