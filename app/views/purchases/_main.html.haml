@@ -9,10 +9,10 @@
             = image_tag asset_path("product1.png"), alt: "ICON"
           .main__inner__select-item__inner__item-box__detail
             %p.main__inner__select-item__inner__item-box__detail__name
-              カレーライス（激辛）
+              = @item.name
             %p.main__inner__select-item__inner__item-box__detail__price
               %span
-                ¥10000
+              = "¥#{@item.price.to_s}"
               %span.main__inner__select-item__inner__item-box__detail__price__shipping-fee
                 （税込）送料込み
       
@@ -23,7 +23,7 @@
             .main__inner__purchase-info__inner__price-box__label
               支払い金額
             .main__inner__purchase-info__inner__price-box__amount-money
-              ¥10000
+              = "¥#{@item.price.to_s}"             
           .main__inner__purchase-info__inner__credit-card-info
             .main__inner__purchase-info__inner__credit-card-info__content
               %h3.main__inner__purchase-info__inner__credit-card-info__content__label
@@ -55,7 +55,8 @@
               %br
               東京都div区div町7-7-7
               %br
-              木村政明
+              = current_user.firstname
+              = current_user.lastname
 
           .main__inner__purchase-info__inner__last-content
             %p.main__inner__purchase-info__inner__last-content__delivery-guide
