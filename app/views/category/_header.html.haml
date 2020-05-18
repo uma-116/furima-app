@@ -2,12 +2,15 @@
   .parent
     - @parents.each do |parent|
       .parent-content
-        = parent.name
+        = link_to "#" do
+          = parent.name
         .child
           - parent.children.each do |child|
             .child-content
-              = child.name
+              = link_to "#" do
+                = child.name
               .grandchild
                 - child.children.each do |grandchild|
                   .grandchild-content
-                    = grandchild.name
+                    = link_to "#" do
+                      = grandchild.name

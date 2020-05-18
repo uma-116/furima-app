@@ -37,5 +37,6 @@ Rails.application.routes.draw do
       get "new_user"
     end
   end 
+
 end
 
