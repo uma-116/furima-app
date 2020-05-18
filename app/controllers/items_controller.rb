@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
+    @categorys = Category.all
 
   end
 
@@ -22,17 +23,14 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.includes([:user, :image, :category]).find(params[:id])
+    @item = Item.includes([:user, :images, :category]).find(params[:id])
   end
 
   private
   def item_params
-    params.require(:item).permit( :name, :detail, :condition, :postage, :ship_from, :ship_date, :price, images_attributes: [:img])
+    params.require(:item).permit( :name, :detail, :condition, :postage, :ship_from, :ship_date, :price, :brand, images_attributes: [:img])
   end
 
-  def item_params
-    params.require(:item).permit(:item_id)
-  end
 
   def set_parents
     @parents  = Category.where(ancestry: nil)
