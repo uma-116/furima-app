@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
-  
+  before_action :move_to_index, except: [:index, :show]
+  before_action :set_category, omly: [:new, :create, :edit, :update]
+
   #トップページが表示できないため、コメントアウト
   # def index
   #   @items = Item.includes(:images).order('created_at DESC')
@@ -8,7 +10,6 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
-    @categorys = Category.all
 
   end
 
@@ -30,7 +31,11 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit( :name, :detail, :condition, :postage, :ship_from, :ship_date, :price, :brand, images_attributes: [:img])
+    params.require(:item).permit( :name, :detail, :category_id, :condition, :postage, :ship_from, :ship_date, :price, :brand, images_attributes: [:img]).merge(user_id: current_user.id)
+  end
+
+  def set_category
+    @categorys = Category.all
   end
 
 
@@ -46,4 +51,7 @@ class ItemsController < ApplicationController
     @grandchildren = Category.where(ancestry: params[:ancestry])
   end
 
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
+  end
 end
