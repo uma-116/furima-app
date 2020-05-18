@@ -34,11 +34,6 @@ class ItemsController < ApplicationController
     params.require(:item).permit( :name, :detail, :category_id, :condition, :postage, :ship_from, :ship_date, :price, :brand, images_attributes: [:img]).merge(user_id: current_user.id)
   end
 
-  def set_category
-    @categorys = Category.all
-  end
-
-
   def set_parents
     @parents  = Category.where(ancestry: nil)
   end

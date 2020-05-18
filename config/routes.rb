@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     resources :items do
     get "set_parents"
     get "set_children"
-    get "set_grandzchildren"
+    get "set_grandchildren"
   end
 
     resources :credit_cards, only: [:new, :show, :destroy] do
