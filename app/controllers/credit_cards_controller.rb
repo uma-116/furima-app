@@ -1,10 +1,8 @@
 class CreditCardsController < ApplicationController
-   ###user機能実装後に”user_id: 1”を”user_id: current_user.id"に変更
 
   def new
-    card = CreditCard.where(user_id: 1) 
-    # redirect_to credit_card_path  if card.exists?
-    # 上記はuer機能実装後に設定予定
+    card = CreditCard.where(user_id: current_user.id) 
+    redirect_to credit_card_path(current_user.id)  if card.exists?
   end
 
   def pay #payjpとCreditCardのデータベース作成
@@ -16,11 +14,11 @@ class CreditCardsController < ApplicationController
     else
       customer = Payjp::Customer.create(
         card: params['payjp-token'],
-        metadata: {user_id: 1} ###user機能実装後current_user.id"に変更
+        metadata: {user_id: current_user.id} 
       ) 
-      @card = CreditCard.new(user_id: 1, customer_id: customer.id, card_id: customer.default_card) ###user機能実装後current_user.id"に変更
+      @card = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card) 
       if @card.save
-        redirect_to "/credit_cards/show"
+        redirect_to credit_card_path(current_user.id)
       else
         redirect_to pay_credit_cards_path
     end
@@ -28,7 +26,7 @@ class CreditCardsController < ApplicationController
 end
 
   def destroy #PayjpとCardデータベースを削除
-    card = CreditCard.find_by(user_id: 1) ###user機能実装後current_user.id"に変更
+    card = CreditCard.find_by(user_id: current_user.id) 
     if card.present?
       Payjp.api_key = Rails.application.credentials[:PAYJP_ACCESS_KEY]
       customer = Payjp::Customer.retrieve(card.customer_id)
@@ -40,7 +38,7 @@ end
 
 
   def show #Cardのデータpayjpに送り情報を取り出す
-    card = CreditCard.find_by(user_id: 1) ###user機能実装後current_user.id"に変更
+    card = CreditCard.find_by(user_id: current_user.id) 
     if card.blank?
       redirect_to new_credit_card_path
     else
