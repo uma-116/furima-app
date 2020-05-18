@@ -214,6 +214,8 @@ $main-border-bottom: 1px solid grey;
         margin: 0 auto 20px;
         border-radius: 8px;
         border: none;
+        cursor: pointer;
+        cursor: hand;
       }
 
       &__draft-botton{
@@ -225,9 +227,15 @@ $main-border-bottom: 1px solid grey;
         margin: 0 auto 20px;
         border-radius: 8px;
         border: none;
+        cursor: pointer;
+        cursor: hand;
       }
-      .back-bton{
+      .back-btn{
         color: #0095ee;
+        margin: 0 auto 20px;
+        display:inline-block;
+        cursor: pointer;
+        cursor: hand;
       }
     }
 
@@ -237,3 +245,5 @@ $main-border-bottom: 1px solid grey;
     }
   }               
 }
+
+

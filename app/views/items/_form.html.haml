@@ -10,9 +10,13 @@
             必須
         最大10枚までアップロードできます
         %br
-        = f.fields_for :images do |i|
-          = i.file_field :img
-                      
+        #image-box
+          = f.fields_for :images do |image|
+            %div{data: { index: "#{image.index}" }, class: "js-file_group" }
+              = image.file_field :img, class: "js-file"
+              %br
+                %span.js-remove
+                  削除
       .content__main__item-name-box
         .text-bold
           商品名
@@ -33,7 +37,7 @@
           %span.required
             必須
         -# カテゴリーフォームは、35行目を使うが、難しければ34行目を使う
-        = f.select :category_id, [['レディース', 1], ['メンズ', 2], ['ベビー・キッズ', 3], ['インテリア・住まい・小物', 4], ['本・音楽・ゲーム', 5], ['おもちゃ・ホビー・グッズ', 6], ['コスメ・香水・美容', 7], ['家電・スマホ・カメラ', 8], ['スポーツ・レジャー', 9], ['ハンドメイド', 10], ['チケット', 11], ['自動車・オートバイ', 12], ['その他', 13]], {prompt: "選択してください"}, {class: "content__main__item-info-box__category"} 
+        -#= f.select :category_id, [['レディース', 1], ['メンズ', 2], ['ベビー・キッズ', 3], ['インテリア・住まい・小物', 4], ['本・音楽・ゲーム', 5], ['おもちゃ・ホビー・グッズ', 6], ['コスメ・香水・美容', 7], ['家電・スマホ・カメラ', 8], ['スポーツ・レジャー', 9], ['ハンドメイド', 10], ['チケット', 11], ['自動車・オートバイ', 12], ['その他', 13]], {prompt: "選択してください"}, {class: "content__main__item-info-box__category"} 
         -#= f.collection_select :category_id, @categorys, :id, :name, prompt: "選択してください", class: "content__main__item-info-box__item-status"
         .text-bold
           ブランド
