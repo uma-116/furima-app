@@ -1,16 +1,16 @@
--# .category-box
--#   .parent
--#     - @parents.each do |parent|
--#       .parent-content
--#         = link_to "#" do
--#           = parent.name
--#         .child
--#           - parent.children.each do |child|
--#             .child-content
--#               = link_to "#" do
--#                 = child.name
--#               .grandchild
--#                 - child.children.each do |grandchild|
--#                   .grandchild-content
--#                     = link_to "#" do
--#                       = grandchild.name
+.category-box
+  .parent
+    - @parents.each do |parent|
+      .parent-content
+        = link_to "#" do
+          = parent.name
+        .child
+          - parent.children.each do |child|
+            .child-content
+              = link_to "#" do
+                = child.name
+              .grandchild
+                - child.children.each do |grandchild|
+                  .grandchild-content
+                    = link_to "#" do
+                      = grandchild.name
