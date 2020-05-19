@@ -559,18 +559,17 @@ html {
   &__btn-wrapper {
     &__edit-destroy-btn {
       display: flex;
-      margin-top: 30px;
       justify-content: space-between;
-      padding: 0 90px;
+      margin: 27px 85px;
+      line-height: 50px;
+      font-weight: bold;
       &__edit-btn {
         width: 200px;
         display: block;
         background-color: #f5f5f5;
         font-size: 22px;
-        line-height: 53px;
-        font-weight: bold;
         text-align: center;
-        border-radius: 40px;
+        border-radius: 10px;
         #edit-btn {
           color: #333;;
         }
@@ -578,28 +577,25 @@ html {
       &__destroy-btn {
         width: 200px;
         display: block;
-        background-color: #ea352d;
-        font-size: 20px;
-        line-height: 53px;
-        font-weight: 600;
+        background-color: #333;
+        font-size: 22px;
         text-align: center;
-        border-radius: 40px;
+        border-radius: 10px;
         #destroy-btn {
-          color: #ffffff;
+          color: #f5f5f5;
         }
       }
     }
 
     &__buy-btn {
       display: block;
-
       background-color: #3CCACE;
       font-size: 24px;
       line-height: 60px;
-      margin-top: 30px;
+      margin: 30px 50px;
       font-weight: 600;
       text-align: center;
-      border-radius: 30px;
+      border-radius: 10px;
       #buy-btn {
         color: #ffffff;
       }  
@@ -670,7 +666,7 @@ html {
       border-radius: 5px;
     }
     &__msg {
-      padding: 8px;
+      padding: 8px 12px;
       font-size: 14px;
       background-color: #f8f8f8;
       margin: 10 0;
@@ -680,7 +676,7 @@ html {
       width: 60%;
       margin-top: 20px;
       background-color: #3CCACE;
-      border-radius: 50px;
+      border-radius: 10px;
       color: #ffffff;
       font-size: 18px;
       line-height: 48px;

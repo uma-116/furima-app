@@ -5,14 +5,15 @@
     = @item.name
   .item-wrapper__main-content
     .item-wrapper__main-content__image
-      ここに画像を表示
+      -# ここに画像を表示する
+      -# = image_tag
     %table.item-wrapper__main-content__status
       %tr.item-wrapper__main-content__status__table
         %td.item-wrapper__main-content__status__table__left
           出品者
         %th.item-wrapper__main-content__status__table__right
           %a{ href: '#', id: 'user' }
-            = @item.user.nickname
+            = @item.seller.nickname
       %tr.item-wrapper__main-content__status__table
         %td.item-wrapper__main-content__status__table__left
           カテゴリー
@@ -35,22 +36,22 @@
         %td.item-wrapper__main-content__status__table__left
           商品の状態
         %th.item-wrapper__main-content__status__table__right
-          = @item.condition
+          = @status.name
       %tr.item-wrapper__main-content__status__table
         %td.item-wrapper__main-content__status__table__left
           配送料の負担
         %th.item-wrapper__main-content__status__table__right
-          = @item.postage
+          = @fee.name
       %tr.item-wrapper__main-content__status__table
         %td.item-wrapper__main-content__status__table__left
           配送元地域
         %th.item-wrapper__main-content__status__table__right
-          = @item.ship_from
+          = @prefecture.name
       %tr.item-wrapper__main-content__status__table
         %td.item-wrapper__main-content__status__table__left
           発送の目安
         %th.item-wrapper__main-content__status__table__right
-          = @item.ship_date
+          = @shipping.name
 
   .item-wrapper__price
     %span.item-wrapper__price__icon
@@ -62,7 +63,7 @@
     %span.item-wrapper__price__postage-side
       送料込み
   .item-wrapper__btn-wrapper
-    - if user_signed_in? && current_user.id == @item.user_id
+    - if user_signed_in? && current_user.id == @item.seller_id
       .item-wrapper__btn-wrapper__edit-destroy-btn
         .item-wrapper__btn-wrapper__edit-destroy-btn__edit-btn
           %a{ href: '#', id: 'edit-btn' }
