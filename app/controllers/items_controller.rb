@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.limit(3).order('created_at DESC')
-    @mens_items = Item.where(category_id: 196..326
+    @mens_items = Item.where(category_id: 196..326).limit(3).order('created_at DESC')
   end
 
   def new
