@@ -11,7 +11,9 @@
 - has_one :address
 - has_one :credit_card
 - has_many :items
-
+- has_many :selling_items <!-- 販売中商品 -->
+- has_many :bought_items <!-- 自分が買った商品 -->
+- has_many :sold_items <!-- 売却済み商品 -->
 
 ## profilesテーブル
 |Column|Type|Options|
@@ -64,14 +66,23 @@
 |ship_from|string|null: false|
 |ship_date|string|null: false|
 |condition|string|null:false|
-|brand|string| |
-|user_id|integer|null: false, foreign_key: true|
+|brand|string|
 |category_id|integer|null: false, foreign_key: true|
+|buyer_id|integer|foreign_key: true|
+|seller_id|integer|foreign_key: true| <!-- user_idはと同じ内容になるため、user_id削除 -->
 <!-- |brand_id|integer|foreign_key: true| -->
 ### Association
-- belongs_to :user
 - has_many :images
 - belongs_to :category
+- belongs_to :seller, class_name: "User", foreign_key: "seller_id"
+- belongs_to :buyer, class_name: "User", foreign_key: "buyer_id", optional: true
+
+- belongs_to_active_hash :prefecture
+- belongs_to_active_hash :status
+- belongs_to_active_hash :shipping
+- belongs_to_active_hash :fee
+
+
 <!-- - belongs_to :brand -->
 
 <!-- itemsテーブルに商品状態 : condition を追記, brandを一時的に直接入力とするために、brandカラムを仮置きし、コメントアウト -->

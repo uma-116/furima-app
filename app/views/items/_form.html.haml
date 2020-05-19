@@ -1,6 +1,8 @@
 .content
   .content__main 
     = form_with model: @item, local: true do |f|
+      = render 'layouts/error_messages', model: f.object
+
       .content__main__item-image-box
         .text-bold
           出品画像
@@ -8,9 +10,13 @@
             必須
         最大10枚までアップロードできます
         %br
-        = f.fields_for :images do |i|
-          = i.file_field :img
-                      
+        #image-box
+          = f.fields_for :images do |image|
+            %div{data: { index: "#{image.index}" }, class: "js-file_group" }
+              = image.file_field :img, class: "js-file"
+              %br
+                %span.js-remove
+                  削除
       .content__main__item-name-box
         .text-bold
           商品名
@@ -30,9 +36,7 @@
           カテゴリー
           %span.required
             必須
-        -# カテゴリーフォームは、35行目を使うが、難しければ34行目を使う
-        = f.select :category_id, [['レディース', 1], ['メンズ', 2], ['ベビー・キッズ', 3], ['インテリア・住まい・小物', 4], ['本・音楽・ゲーム', 5], ['おもちゃ・ホビー・グッズ', 6], ['コスメ・香水・美容', 7], ['家電・スマホ・カメラ', 8], ['スポーツ・レジャー', 9], ['ハンドメイド', 10], ['チケット', 11], ['自動車・オートバイ', 12], ['その他', 13]], {prompt: "選択してください"}, {class: "content__main__item-info-box__category"} 
-        -#= f.collection_select :category_id, @categorys, :id, :name, prompt: "選択してください", class: "content__main__item-info-box__item-status"
+        = f.collection_select :category_id, @parents, :id, :name, {prompt: "選択してください"}, class: "content__main__item-info-box__category"
         .text-bold
           ブランド
         = f.text_field :brand, class:"content__main__item-info-box__brand-field", placeholder: "例）シャネル"
@@ -41,7 +45,7 @@
           商品の状態
           %span.required
             必須
-        = f.collection_select :condition, Stats.all, :id, :name, {prompt: "選択してください"}, class: "content__main__item-info-box__item-status"
+        = f.collection_select :condition, Status.all, :id, :name, {prompt: "選択してください"}, class: "content__main__item-info-box__item-status"
 
       .content__main__delivery-box
         -# 「配送について」のリンクは削除してもいいかも
@@ -84,9 +88,7 @@
           .content__main__price-box__profit-inner__left
             販売利益
           .content__main__price-box__profit-inner__right
-            [販売価格 - 手数料 の合計値が入ります]
-        
-
+            [販売価格 - 手数料 の合計値が入ります]        
       .content__main__botton-box
         = f.submit "出品する", class: "content__main__botton-box__send-botton"
         -# = f.submit "下書きに保存", class: "content__main__botton-box__draft-botton"

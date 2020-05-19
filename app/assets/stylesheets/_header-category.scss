@@ -1,0 +1,60 @@
+.parent,.child,.grandchild{
+  display: none;
+}
+.header__inner__nav__left__category{
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+
+  &__box{
+    height: 100%;
+    position: absolute;
+    .parent,.child,.grandchild{
+      box-shadow: 1px 1px 3px;
+      height: 100%;
+      background-color: white;
+      color: black;
+    }
+    .parent-content,.child-content,.grandchild-content{
+      padding: 6px;
+      background-color: white;
+      &:hover{
+        &:hover{
+          background-color: #3CCACE;
+          color: white;
+        }
+      }
+    }
+  }
+  &:hover{
+    .parent{
+      display: block;
+      .parent-content{
+        width: 260px;
+        &:hover{
+          .child{
+            width: 260px;
+            display: block;
+            position: absolute;
+            top: 0px;
+            left: 260px;
+            background-color: white;
+            .child-content{
+              display: block;
+              &:hover{
+                .grandchild{
+                  width: 260px;
+                  display: block;
+                  position: absolute;
+                  top: 0;
+                  left: 260px;
+                  background-color: white;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
