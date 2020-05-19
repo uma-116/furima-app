@@ -260,14 +260,12 @@ $main-border-bottom: 1px solid grey;
   right: 32px;
   position: fixed;
   padding: 15px;
-
+  &:hover{
+    opacity: 0.9;
+  }
   &__camera{
     font-size: 60px;
   }
-}
-
-.exhibition-button:hover{
-  opacity: 0.9;
 }
 
 
