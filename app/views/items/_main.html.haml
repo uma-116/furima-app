@@ -102,24 +102,24 @@
             新規投稿商品   
       .main__top-pickup-contents__product-box__lists
         -@items.each do |item|
-        .main__top-pickup-contents__product-box__lists__list
-          = link_to "#" do
-            %figure.main__top-pickup-contents__product-box__lists__list__image
-              = image_tag asset_path("product3.png"), alt: "ICON"
-            .main__top-pickup-contents__product-box__lists__list__body
-              .main__top-pickup-contents__product-box__lists__list__body__name
-                %h3
-                  product3
-              .main__top-pickup-contents__product-box__lists__list__body__details
-                %ul
-                  %li
-                    30000円
-                  %li.main__top-pickup-contents__product-box__lists__list__body__details__link-icon
-                    %span
-                      ★
-                    ０
-                %p
-                  (税込)
+          .main__top-pickup-contents__product-box__lists__list
+            = link_to "#" do
+              %figure.main__top-pickup-contents__product-box__lists__list__image
+                = image_tag asset_path("product3.png"), alt: "ICON"
+              .main__top-pickup-contents__product-box__lists__list__body
+                .main__top-pickup-contents__product-box__lists__list__body__name
+                  %h3
+                    product3
+                .main__top-pickup-contents__product-box__lists__list__body__details
+                  %ul
+                    %li
+                      30000円
+                    %li.main__top-pickup-contents__product-box__lists__list__body__details__link-icon
+                      %span
+                        ★
+                      ０
+                  %p
+                    (税込)
         .main__top-pickup-contents__product-box__lists__list
           = link_to "#" do
             %figure.main__top-pickup-contents__product-box__lists__list__image
