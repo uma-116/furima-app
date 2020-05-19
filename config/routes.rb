@@ -12,15 +12,18 @@ Rails.application.routes.draw do
   root 'items#index'
 
   resources :items do
-  
+
+    resources :purchases, only: [:index] do
+      collection do
+        post 'pay', to: 'purchases#pay'
+        end
+      end
+
     get "set_parents"
     get "set_children"
     get "set_grandchildren"
-  
-    resources :comments, only: :create
 
-    #購入機能実装時にitemsに対してネスト設定を行う（item_id情報を受け取るため）
-    resources :purchases, only: [:index]
+    resources :comments, only: :create
 
     resources :credit_cards, only: [:new, :show, :destroy] do
       collection do
@@ -28,9 +31,8 @@ Rails.application.routes.draw do
       end
     end
   end
- 
+
   resources :users, only: [:show] do
-  
     collection do
       get "log_in"
       get "new_user"

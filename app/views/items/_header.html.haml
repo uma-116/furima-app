@@ -2,7 +2,7 @@
   .header__inner
     .header__inner__main
       %h1.header__inner__main__icon
-        = link_to "#" do
+        = link_to root_path do
           = image_tag asset_path("header_log.svg"), size: "140x41", alt: "ICON" 
       .header__inner__main__search-box
         %form{action: "#"}
@@ -14,6 +14,8 @@
         %li.header__inner__nav__left__category
           = link_to "#" do
             カテゴリー
+          .header__inner__nav__left__category__box
+            = render "category/header"
         %li.header__inner__nav__left__brand
           = link_to "#" do
             ブランド
