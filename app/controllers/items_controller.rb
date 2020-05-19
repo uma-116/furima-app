@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
-  before_action :set_parents, only: [:index, :new, :create, :edit, :update]
-
+  
   #トップページが表示できないため、コメントアウト
   # def index
   #   @items = Item.includes(:images).order('created_at DESC')
