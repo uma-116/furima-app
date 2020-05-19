@@ -6,7 +6,6 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
-
   end
 
   def create
@@ -22,7 +21,9 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.includes([:user, :images, :category]).find(params[:id])
+    @item = Item.includes([:user, :images, :category, :comments]).find(params[:id])
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
   end
 
   private

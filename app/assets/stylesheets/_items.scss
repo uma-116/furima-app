@@ -458,9 +458,9 @@ html {
   height: 100%;
 }
 
-.main-wrapper {
+.item-wrapper {
   background-color: #ffffff;
-  margin: 40px auto;
+  margin: 40px auto 20px;
   padding: 24px 40px 40px;
   width: 700px;
   box-sizing: border-box;
@@ -493,22 +493,31 @@ html {
       height: 420px;
       margin: 0 auto;
 
-        &__table {
-          border: 1px solid #f5f5f5;
-          font-size: 14px;
-          
-          &__left {
-            text-align: left;
-            width: 39%;
-            font-weight: 400;
-            background-color: #fafafa;
-            padding: 8px;
-          }
+      &__table {
+        border: 1px solid #f5f5f5;
+        font-size: 14px;
+        
+        &__left {
+          text-align: left;
+          width: 39%;
+          font-weight: 400;
+          background-color: #fafafa;
+          padding: 8px;
+        }
 
-          &__right {
-            width: 61%;
-            background-color: #ffffff;
-            padding: 8px;
+        &__right {
+          width: 61%;
+          background-color: #ffffff;
+          padding: 8px;
+          #user {
+            color: #333;
+          }
+          #category {
+            color: #3CCACE;
+          }
+          #brand {
+            color: #333;
+          }
         }
       }
     }
@@ -535,15 +544,66 @@ html {
     }
   }
 
-  &__buy-btn {
-    display: block;
-    background-color: #3CCACE;
-    color: #ffffff;
-    font-size: 24px;
-    line-height: 60px;
-    margin-top: 16px;
-    font-weight: 600;
-    text-align: center;
+  &__btn-wrapper {
+    &__edit-destroy-btn {
+      display: flex;
+      margin-top: 30px;
+      justify-content: space-between;
+      padding: 0 90px;
+      &__edit-btn {
+        width: 200px;
+        display: block;
+        background-color: #f5f5f5;
+        font-size: 24px;
+        line-height: 60px;
+        font-weight: 600;
+        text-align: center;
+        border-radius: 30px;
+        #edit-btn {
+          color: #333;;
+        }
+      }
+      &__destroy-btn {
+        width: 200px;
+        display: block;
+        background-color: #ea352d;
+        font-size: 24px;
+        line-height: 60px;
+        font-weight: 600;
+        text-align: center;
+        border-radius: 30px;
+        #destroy-btn {
+          color: #ffffff;
+        }
+      }
+    }
+
+    &__buy-btn {
+      display: block;
+      background-color: #3CCACE;
+      font-size: 24px;
+      line-height: 60px;
+      margin-top: 30px;
+      font-weight: 600;
+      text-align: center;
+      border-radius:30px;
+      #buy-btn {
+        color: #ffffff;
+      }  
+    }
+
+    &__not-current {
+      width: 90%;
+      display: block;
+      font-size: 15px;
+      line-height: 40px;
+      margin: 30px auto 0;
+      text-align: center;
+      #buy-not-current {
+        color: #3CCACE;
+        font-weight: bold;
+      }
+    }
   }
 
   &__description {
@@ -551,16 +611,82 @@ html {
     line-height: 1.5;
     font-size: 14px;
   }
+}
 
-  a {
-    text-decoration: none;
+.comment-wrapper{
+  background-color: #ffffff;
+  margin: 20px auto 40px;
+  padding: 24px 40px 0px;
+  width: 700px;
+  box-sizing: border-box;
+  color: #333;
+  text-align: center;
+
+  &__index {
+    text-align: left;
+    &__info {
+      display: flex;
+      margin-bottom: 2px;
+      &__user {
+        margin-right: 10px;
+        padding-left: 10px;
+        a{
+          color: #3CCACE;
+          font-size: 16px;
+        }
+      }
+      &__date {
+        font-size: 14px;
+      }
+    }
+    &__content {
+      background-color: #f8f8f8;
+      line-height: 3;
+      font-size: 17px;
+      padding-left: 15px;
+      border-radius: 10px;
+    }
   }
 
-  body {
-    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  &__form {
+    &__text {
+      width: 100%;
+      margin: 20px 0px 15px;
+      padding: 10px;
+      border: 1px solid #d8d8d8;
+      border-radius: 5px;
+    }
+    &__msg {
+      padding: 8px;
+      font-size: 14px;
+      background-color: #f8f8f8;
+      margin: 10 0;
+      text-align: left;
+    }
+    &__btn {
+      width: 60%;
+      margin-top: 20px;
+      background-color: #3CCACE;
+      border-radius: 50px;
+      color: #ffffff;
+      font-size: 18px;
+      line-height: 48px;
+      padding-bottom: 40px;
+    }
+  }
+
+  &__not-current {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    padding-bottom: 20px;
+    #not-current {
+      color: #3CCACE;
+      font-weight: bold;
+    }
   }
 }
 
-#btn {
-  color: #ffffff;
+body {
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
 }
