@@ -12,13 +12,13 @@
         %td.item-wrapper__main-content__status__table__left
           出品者
         %th.item-wrapper__main-content__status__table__right
-          %a{ href: '#', id: 'user' }
+          = link_to "#", id: 'user' do
             = @item.seller.nickname
       %tr.item-wrapper__main-content__status__table
         %td.item-wrapper__main-content__status__table__left
           カテゴリー
         %th.item-wrapper__main-content__status__table__right
-          %a{ href: '#', id: 'category' }
+          = link_to '#', id: 'category' do
             = @item.category.parent.parent.name
             %br
             %i{class: "fas fa-chevron-right"}
@@ -30,7 +30,7 @@
         %td.item-wrapper__main-content__status__table__left
           ブランド
         %th.item-wrapper__main-content__status__table__right
-          %a{ href: '#', id: 'brand' }
+          = link_to '#', id: 'brand' do
             = @item.brand
       %tr.item-wrapper__main-content__status__table
         %td.item-wrapper__main-content__status__table__left
@@ -66,22 +66,22 @@
     - if user_signed_in? && current_user.id == @item.seller_id
       .item-wrapper__btn-wrapper__edit-destroy-btn
         .item-wrapper__btn-wrapper__edit-destroy-btn__edit-btn
-          %a{ href: '#', id: 'edit-btn' }
+          = link_to '#', id: 'edit-btn' do
             編集する
         .item-wrapper__btn-wrapper__edit-destroy-btn__destroy-btn
-          %a{ href: '#', id: 'destroy-btn' }
+          = link_to '#', id: 'destroy-btn' do
             出品をやめる
     - elsif user_signed_in?
       .item-wrapper__btn-wrapper__buy-btn
-        %a{ href: '#', id: 'buy-btn' }
+        = link_to href: '#', id: 'buy-btn' do
           購入する
     - else
       .item-wrapper__btn-wrapper__not-current
         商品の購入には
-        %a{ href: '#', id: 'buy-not-current'}
+        = link_to '#', id: 'buy-not-current' do
           新規登録
         &thinsp;または&thinsp;
-        %a{ href: '#', id: 'buy-not-current'}
+        = link_to '#', id: 'buy-not-current' do
           ログイン
         が必要です。
   .item-wrapper__description
@@ -112,10 +112,10 @@
   - else
     .comment-wrapper__not-current
       コメントの投稿には
-      %a{ href: '#', id: 'not-current'}
+      = link_to '#', id: 'not-current' do
         新規登録
       &thinsp;または&thinsp;
-      %a{ href: '#', id: 'not-current'}
+      = link_to '#', id: 'not-current' do
         ログイン
       が必要です。
 = render "footer"
