@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
-  before_action :set_category, omly: [:new, :create, :edit, :update]
+  before_action :set_category, only: [:new, :create, :edit, :update]
 
   #トップページが表示できないため、コメントアウト
   # def index
@@ -31,7 +31,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit( :name, :detail, :category_id, :condition, :postage, :ship_from, :ship_date, :price, :brand, images_attributes: [:img]).merge(user_id: current_user.id)
+    params.require(:item).permit( :name, :detail, :category_id, :condition, :postage, :ship_from, :ship_date, :price, :brand, images_attributes: [:img]).merge(seller_id: current_user.id)
   end
 
   def set_category
