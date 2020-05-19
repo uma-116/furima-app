@@ -78,7 +78,7 @@
 - belongs_to :buyer, class_name: "User", foreign_key: "buyer_id", optional: true
 
 - belongs_to_active_hash :prefecture
-- belongs_to_active_hash :stats
+- belongs_to_active_hash :status
 - belongs_to_active_hash :shipping
 - belongs_to_active_hash :fee
 

@@ -45,7 +45,7 @@
           商品の状態
           %span.required
             必須
-        = f.collection_select :condition, Stats.all, :id, :name, {prompt: "選択してください"}, class: "content__main__item-info-box__item-status"
+        = f.collection_select :condition, Status.all, :id, :name, {prompt: "選択してください"}, class: "content__main__item-info-box__item-status"
 
       .content__main__delivery-box
         -# 「配送について」のリンクは削除してもいいかも
