@@ -554,11 +554,11 @@ html {
         width: 200px;
         display: block;
         background-color: #f5f5f5;
-        font-size: 22px;
-        line-height: 53px;
-        font-weight: bold;
+        font-size: 24px;
+        line-height: 60px;
+        font-weight: 600;
         text-align: center;
-        border-radius: 40px;
+        border-radius: 30px;
         #edit-btn {
           color: #333;;
         }
@@ -567,11 +567,11 @@ html {
         width: 200px;
         display: block;
         background-color: #ea352d;
-        font-size: 20px;
-        line-height: 53px;
+        font-size: 24px;
+        line-height: 60px;
         font-weight: 600;
         text-align: center;
-        border-radius: 40px;
+        border-radius: 30px;
         #destroy-btn {
           color: #ffffff;
         }
@@ -580,14 +580,13 @@ html {
 
     &__buy-btn {
       display: block;
-
       background-color: #3CCACE;
       font-size: 24px;
       line-height: 60px;
       margin-top: 30px;
       font-weight: 600;
       text-align: center;
-      border-radius: 30px;
+      border-radius:30px;
       #buy-btn {
         color: #ffffff;
       }  
@@ -672,8 +671,7 @@ html {
       color: #ffffff;
       font-size: 18px;
       line-height: 48px;
-      margin-bottom: 40px;
-      border: #3CCACE
+      padding-bottom: 40px;
     }
   }
 
