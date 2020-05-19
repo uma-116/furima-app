@@ -1,0 +1,11 @@
+.exhibition-button
+  - if user_signed_in?
+    = link_to new_item_path, class: "exhibition-button" do
+      出品する
+      .exhibition-button__camera
+        = icon('fas', 'camera')
+  - else
+    = link_to new_user_session_path, class: "exhibition-button" do
+      出品する
+      .exhibition-button__camera
+        = icon('fas', 'camera')
