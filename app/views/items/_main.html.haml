@@ -101,6 +101,7 @@
           %h3
             新規投稿商品   
       .main__top-pickup-contents__product-box__lists
+        -@items.each do |item|
         .main__top-pickup-contents__product-box__lists__list
           = link_to "#" do
             %figure.main__top-pickup-contents__product-box__lists__list__image
