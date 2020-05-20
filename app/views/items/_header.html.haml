@@ -4,10 +4,11 @@
       %h1.header__inner__main__icon
         = link_to root_path do
           = image_tag asset_path("header_log.svg"), size: "140x41", alt: "ICON" 
-      .header__inner__main__search-box
-        = f.text_field :keyword, class: 'header__inner__main__search-box--text--form', placeholder: 'キーワードから探す'
-        =f.button type: :submit, class: "header__inner__main__search-box--submit-btn" do
-          = image_tag asset_path("icon-search.svg"), size: "20x20", alt: "ICON"
+      =form_with model: @item,url: items_searches_path, local: true, class: "header__inner__main__search-box", method: :get do |f|
+        .header__inner__main__search-box
+          = f.text_field :keyword, class: 'header__inner__main__search-box--text--form', placeholder: 'キーワードから探す'
+          =f.button type: :submit, class: "header__inner__main__search-box--submit-btn" do
+            = image_tag asset_path("icon-search.svg"), size: "20x20", alt: "ICON"
     .header__inner__nav
       %ul.header__inner__nav__left
         %li.header__inner__nav__left__category
