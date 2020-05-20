@@ -1,11 +1,12 @@
 = render "header"
+-console
 
 .item-wrapper
   %h1.item-wrapper__title
     = @item.name
   .item-wrapper__main-content
     .item-wrapper__main-content__image
-      -# = image_tag @item.images.url
+      = image_tag @item.images.first.img.url, class: "item-wrapper__main-content__image__first"
     %table.item-wrapper__main-content__status
       %tr.item-wrapper__main-content__status__table
         %td.item-wrapper__main-content__status__table__left
@@ -35,7 +36,7 @@
         %td.item-wrapper__main-content__status__table__left
           商品の状態
         %th.item-wrapper__main-content__status__table__right
-          = @status.name
+          -# = @status.name
       %tr.item-wrapper__main-content__status__table
         %td.item-wrapper__main-content__status__table__left
           配送料の負担
@@ -45,12 +46,12 @@
         %td.item-wrapper__main-content__status__table__left
           配送元地域
         %th.item-wrapper__main-content__status__table__right
-          = @prefecture.name
+          -# = @prefecture.name
       %tr.item-wrapper__main-content__status__table
         %td.item-wrapper__main-content__status__table__left
           発送の目安
         %th.item-wrapper__main-content__status__table__right
-          = @shipping.name
+          -# = @shipping.name
 
   .item-wrapper__price
     %span.item-wrapper__price__icon
