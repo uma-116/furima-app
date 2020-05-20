@@ -19,4 +19,12 @@ class Item < ApplicationRecord
   validates :images, presence: true
 
   validates :name, :detail, :condition, :category_id, :price, :postage, :ship_from, :ship_date, presence: true
+
+  def self.search(search)
+    if search
+      Item.where('text LIKE(?)', "%#{search}%")
+    else
+      Item.all
+    end
+  end
 end

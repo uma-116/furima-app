@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   namespace :items do
     resources :searches, only: :index
   end
-
+  
   resources :items do
 
     resources :purchases, only: [:index] do
@@ -22,20 +22,22 @@ Rails.application.routes.draw do
         post 'pay', to: 'purchases#pay'
         end
       end
-
+    end
+  
+    resources :items do
     get "set_parents"
     get "set_children"
     get "set_grandchildren"
-
-    resources :comments, only: :create
+    
+    get "set_grandzchildren"
+  end
 
     resources :credit_cards, only: [:new, :show, :destroy] do
       collection do
         post 'pay', to: 'credit_cards#pay'
       end
     end
-  end
-
+ 
   resources :users, only: [:show] do
     collection do
       get "log_in"

@@ -1,5 +1,5 @@
 class Items::SearchesController < ApplicationController
   def index
-    @items = Tweet.search(params[:keyword])
+    @items = Item.search(params[:keyword])
   end
 end
