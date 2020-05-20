@@ -5,10 +5,9 @@
         = link_to root_path do
           = image_tag asset_path("header_log.svg"), size: "140x41", alt: "ICON" 
       .header__inner__main__search-box
-        %form{action: "#"}
-          %input{placeholder: "キーワードから探す", type: "seach"}/          
-          %button{type: "submit"}
-            = image_tag asset_path("icon-search.svg"), size: "20x20", alt: "ICON" 
+        = f.text_field :keyword, class: 'header__inner__main__search-box--text--form', placeholder: 'キーワードから探す'
+        =f.button type: :submit, class: "header__inner__main__search-box--submit-btn" do
+          = image_tag asset_path("icon-search.svg"), size: "20x20", alt: "ICON"
     .header__inner__nav
       %ul.header__inner__nav__left
         %li.header__inner__nav__left__category
