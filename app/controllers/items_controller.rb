@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
-  
+
   #トップページが表示できないため、コメントアウト
   # def index
   #   @items = Item.includes(:images).order('created_at DESC')
@@ -15,7 +15,6 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
-
   end
 
   def create
@@ -31,12 +30,14 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.includes([:user, :images, :category]).find(params[:id])
+    @item = Item.includes([:seller, :images, :category, :comments]).find(params[:id])
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
   end
 
   private
   def item_params
-    params.require(:item).permit( :name, :detail, :category_id, :condition, :postage, :ship_from, :ship_date, :price, :brand, images_attributes: [:img]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :detail, :category_id, :condition_id, :fee_id, :prefecture_id, :shipping_id, :price, :brand, images_attributes: [:img]).merge(seller_id: current_user.id)
   end
 
   def set_parents
