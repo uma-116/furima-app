@@ -33,10 +33,6 @@ class ItemsController < ApplicationController
     @item = Item.includes([:seller, :images, :category, :comments]).find(params[:id])
     @comment = Comment.new
     @comments = @item.comments.includes(:user)
-    @fee = Fee.find(params[:id])
-    @status = Status.find(params[:id])
-    @shipping = Shipping.find(params[:id])
-    @prefecture = Prefecture.find(params[:id])
   end
 
   private
