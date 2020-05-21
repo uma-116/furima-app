@@ -1,7 +1,7 @@
 .wrapper
   = render "items/header"
 .main__top-pickup-contents__product-box__search-word
-  ="「#{params[:keyword]}」の検索結果："
+  ="「#{params[:keyword]}」の検索結果：#{@count}件"
 .main__top-pickup-contents__product-box__lists
   
   -@items.each do |item|
