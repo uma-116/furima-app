@@ -1,5 +1,4 @@
 = render "header"
--console
 
 .item-wrapper
   %h1.item-wrapper__title
@@ -36,22 +35,22 @@
         %td.item-wrapper__main-content__status__table__left
           商品の状態
         %th.item-wrapper__main-content__status__table__right
-          -# = @status.name
+          = @item.condition.name
       %tr.item-wrapper__main-content__status__table
         %td.item-wrapper__main-content__status__table__left
           配送料の負担
         %th.item-wrapper__main-content__status__table__right
-          = @fee.name
+          = @item.fee.name
       %tr.item-wrapper__main-content__status__table
         %td.item-wrapper__main-content__status__table__left
           配送元地域
         %th.item-wrapper__main-content__status__table__right
-          -# = @prefecture.name
+          = @item.prefecture.name
       %tr.item-wrapper__main-content__status__table
         %td.item-wrapper__main-content__status__table__left
           発送の目安
         %th.item-wrapper__main-content__status__table__right
-          -# = @shipping.name
+          = @item.shipping.name
 
   .item-wrapper__price
     %span.item-wrapper__price__icon

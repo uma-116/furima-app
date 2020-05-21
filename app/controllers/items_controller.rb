@@ -30,13 +30,11 @@ class ItemsController < ApplicationController
     @item = Item.includes([:seller, :images, :category, :comments]).find(params[:id])
     @comment = Comment.new
     @comments = @item.comments.includes(:user)
-
-
   end
 
   private
   def item_params
-    params.require(:item).permit( :name, :detail, :category_id, :condition, :postage, :ship_from, :ship_date, :price, :brand, images_attributes: [:img]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :detail, :category_id, :condition_id, :fee_id, :prefecture_id, :shipping_id, :price, :brand, images_attributes: [:img]).merge(seller_id: current_user.id)
   end
 
   def set_parents
