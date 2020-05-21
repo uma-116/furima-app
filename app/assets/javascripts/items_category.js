@@ -34,7 +34,6 @@ $(function () {
       })
   })
 
-  git merge --no-ff origin/master
   $(document).on('change','#jsChildren_id', function () {
     let child = $(this).val();
     $.ajax({
