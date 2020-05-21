@@ -21,13 +21,13 @@ Rails.application.routes.draw do
   
 
     resources :comments, only: :create
+  end
 
     resources :credit_cards, only: [:new, :show, :destroy] do
       collection do
         post 'pay', to: 'credit_cards#pay'
       end
     end
-  end
 
   get "category/set_parents", to: "items#set_parents"
   get "category/set_children", to: "items#set_children"
