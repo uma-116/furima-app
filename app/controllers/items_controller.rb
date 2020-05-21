@@ -7,18 +7,20 @@ class ItemsController < ApplicationController
   # end
 
   def index
+    @items = Item.limit(3).order('created_at DESC').where("buyer_id is NULL")
+    @mens_items = Item.where(category_id: 196..326).limit(3).order('created_at DESC').where("buyer_id is NULL")
+    @ladies_items = Item.where(category_id: 1..195).limit(3).order('created_at DESC').where("buyer_id is NULL")
   end
 
   def new
     @item = Item.new
     @item.images.new
-
   end
 
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to root_path
+      redirect_to root_path, notice: "登録が完了しました"
     else
       render :new
     end
@@ -28,8 +30,12 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.includes([:user, :images, :category]).find(params[:id])
+    @item = Item.includes([:seller, :images, :category, :comments]).find(params[:id])
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
   end
+
+
 
   def set_parents
     @parents  = Category.where(ancestry: nil)
@@ -45,7 +51,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit( :name, :detail, :category_id, :condition, :postage, :ship_from, :ship_date, :price, :brand, images_attributes: [:img]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :detail, :category_id, :condition_id, :fee_id, :prefecture_id, :shipping_id, :price, :brand, images_attributes: [:img]).merge(seller_id: current_user.id)
   end
 
   def move_to_index
