@@ -45,7 +45,7 @@
           商品の状態
           %span.required
             必須
-        = f.collection_select :condition, Status.all, :id, :name, {prompt: "選択してください"}, class: "content__main__item-info-box__item-status"
+        = f.collection_select :condition_id, Condition.all, :id, :name, {prompt: "選択してください"}, class: "content__main__item-info-box__item-status"
 
       .content__main__delivery-box
         -# 「配送について」のリンクは削除してもいいかも
@@ -56,17 +56,17 @@
           配送料の負担
           %span.required
             必須
-        = f.collection_select :postage, Fee.all, :id, :name, {prompt: "選択してください"}, class: "content__main__delivery-box__delivery-fee"
+        = f.collection_select :fee_id, Fee.all, :id, :name, {prompt: "選択してください"}, class: "content__main__delivery-box__delivery-fee"
         .text-bold
           発送元の地域
           %span.required
             必須
-        = f.collection_select :ship_from, Prefecture.all, :id, :name, {prompt: "選択してください"}, class: "content__main__delivery-box__area"
+        = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "選択してください"}, class: "content__main__delivery-box__area"
         .text-bold
           発送までの日数
           %span.required
             必須
-        = f.collection_select :ship_date, Shipping.all, :id, :name, {prompt: "選択してください"}, class: "content__main__delivery-box__days"
+        = f.collection_select :shipping_id, Shipping.all, :id, :name, {prompt: "選択してください"}, class: "content__main__delivery-box__days"
 
       .content__main__price-box
         .content__main__price-box__headline
