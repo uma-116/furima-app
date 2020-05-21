@@ -31,11 +31,6 @@ class ItemsController < ApplicationController
     @item = Item.includes([:user, :images, :category]).find(params[:id])
   end
 
-  private
-  def item_params
-    params.require(:item).permit( :name, :detail, :category_id, :condition, :postage, :ship_from, :ship_date, :price, :brand, images_attributes: [:img]).merge(seller_id: current_user.id)
-  end
-
   def set_parents
     @parents  = Category.where(ancestry: nil)
   end
@@ -45,7 +40,12 @@ class ItemsController < ApplicationController
   end
 
   def set_grandchildren
-    @grandchildren = Category.where(ancestry: params[:ancestry])
+    @grandchildren = Category.where('ancestry LIKE ?', "%/#{params[:child_id]}")
+  end
+
+  private
+  def item_params
+    params.require(:item).permit( :name, :detail, :category_id, :condition, :postage, :ship_from, :ship_date, :price, :brand, images_attributes: [:img]).merge(seller_id: current_user.id)
   end
 
   def move_to_index

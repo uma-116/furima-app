@@ -19,11 +19,11 @@ Rails.application.routes.draw do
       end
     end
   
-    resources :items do
-    get "set_parents"
-    get "set_children"
-    get "set_grandchildren"
-  end
+    # resources :items do
+    get "category/set_parents", to: "items#set_parents"
+    get "category/set_children", to: "items#set_children"
+    get "category/set_grandchildren", to: "items#set_grandchildren"
+  # end
 
     resources :credit_cards, only: [:new, :show, :destroy] do
       collection do
