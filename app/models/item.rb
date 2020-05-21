@@ -12,9 +12,9 @@ class Item < ApplicationRecord
   belongs_to :buyer, class_name: "User", foreign_key: "buyer_id", optional: true
 
   accepts_nested_attributes_for :images, allow_destroy: true
-
-  validates_associated :images
+  
+  # 商品出品時のバリテーションだが、不要な可能性があるためコメントアウト（前田さん確認中）
+  # validates_associated :images
   validates :images, presence: true
-
   validates :name, :detail, :condition, :category_id, :price, :postage, :ship_from, :ship_date, presence: true
 end
