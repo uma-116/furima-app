@@ -1,8 +1,8 @@
 $(function () {
 
   function buildCategoryForm(children) {       // ④カテゴリのフォームを組み立ててappendする。
-    var options = ``;                            // buildOption関数でこれを組み立てる
-    children.forEach(function (child) {     // カテゴリを一つずつ渡してoptionタグを一つずつ組み立てていく。
+    var options = ``;                          // buildOption関数でこれを組み立てる
+    children.forEach(function (child) {        // カテゴリを一つずつ渡してoptionタグを一つずつ組み立てていく。
       options += buildOption(child);
     });
     var blank = "選択してください";
@@ -15,7 +15,7 @@ $(function () {
     return html;
   }
 
-  function buildOption(child) {              // ④渡されてきたデータを使ってoptionタグを組み立てる。
+  function buildOption(child) {                // ④渡されてきたデータを使ってoptionタグを組み立てる。
     var option = `<option value="${child.id}">${child.name}</option>`
     return option;
   }
@@ -28,7 +28,7 @@ $(function () {
       data: { parent_id: parent },
       dataType: "json"
     })
-      .done(function (children) {           // ③html追加
+      .done(function (children) {                  // ③html追加
         var html = buildCategoryForm(children)
         $('.jsCategory').append(html);
       })
@@ -67,6 +67,5 @@ $(function () {
       var option = `<option value="${grandchild.id}">${grandchild.name}</option>`
       return option;
       }
-
 });
 
