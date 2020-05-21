@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     get "set_grandchildren"
     
     get "set_grandzchildren"
-
+    end
     resources :comments, only: :create
   end
 
