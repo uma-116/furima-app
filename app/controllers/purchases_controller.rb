@@ -1,6 +1,6 @@
 class PurchasesController < ApplicationController
   require 'payjp'#Payjpの読み込み
-  before_action :set_card, :set_item
+  before_action :set_card, :set_item, :set_address
 
   def index
     if @card.blank?
@@ -37,6 +37,7 @@ class PurchasesController < ApplicationController
       :customer => @card.customer_id,  #顧客ID
       :currency => 'jpy',              #日本円
     )
+    @item.update!(buyer_id: current_user.id)
     redirect_to root_path 
   end
 
@@ -50,7 +51,8 @@ class PurchasesController < ApplicationController
     @item = Item.find(params[:item_id])
   end
 
-
-
+  def set_address
+    @address = Address.where(user_id: current_user.id).first
+  end
 
 end
