@@ -243,7 +243,7 @@ $main-border-bottom: 1px solid grey;
       font-size: 10px;
       padding: 20px 0 ;
     }
-  }               
+  }
 }
 
 
@@ -265,5 +265,19 @@ $main-border-bottom: 1px solid grey;
   }
   &__camera{
     font-size: 60px;
+  }
+}
+
+// フラッシュメッセージ
+.notifications {
+  color: white;
+  text-align: center;  
+
+  .notice {
+    font-size: 26px;
+    font-weight: 900;
+    height: 60px;
+    line-height: 60px;
+    background-color: #3ccace;
   }
 }

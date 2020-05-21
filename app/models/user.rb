@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_one :address , dependent: :destroy
   has_one :credit_card , dependent: :destroy
   has_many :items
+  has_many :comments
 
   # 販売中 → 自分のseller_idが入っていて、buyer_idが入っていないitem
   has_many :selling_items,  -> { where("buyer_id is NULL") }, class_name: "item", foreign_key: "seller_id"
