@@ -7,9 +7,9 @@ class ItemsController < ApplicationController
   # end
 
   def index
-    @items = Item.limit(3).order('created_at DESC')
-    @mens_items = Item.where(category_id: 196..326).limit(3).order('created_at DESC')
-    @ladies_items = Item.where(category_id: 1..195).limit(3).order('created_at DESC')
+    @items = Item.limit(3).order('created_at DESC').where("buyer_id is NULL")
+    @mens_items = Item.where(category_id: 196..326).limit(3).order('created_at DESC').where("buyer_id is NULL")
+    @ladies_items = Item.where(category_id: 1..195).limit(3).order('created_at DESC').where("buyer_id is NULL")
   end
 
   def new
@@ -31,18 +31,13 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.includes([:seller, :images, :category, :comments]).find(params[:id])
-
     @comment = Comment.new
     @comments = @item.comments.includes(:user)
-    @fee = Fee.find(params[:id])
-    @status = Status.find(params[:id])
-    @shipping = Shipping.find(params[:id])
-    @prefecture = Prefecture.find(params[:id])
   end
 
   private
   def item_params
-    params.require(:item).permit( :name, :detail, :category_id, :condition, :postage, :ship_from, :ship_date, :price, :brand, images_attributes: [:img]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :detail, :category_id, :condition_id, :fee_id, :prefecture_id, :shipping_id, :price, :brand, images_attributes: [:img]).merge(seller_id: current_user.id)
   end
 
   def set_parents
