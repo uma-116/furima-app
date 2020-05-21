@@ -7,10 +7,10 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
 
   # items table association
-  has_many :images
+  has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
 
-  has_many :comments
+  has_many :comments, dependent: :destroy
   belongs_to :category
   belongs_to :seller, class_name: "User", foreign_key: "seller_id"
   belongs_to :buyer, class_name: "User", foreign_key: "buyer_id", optional: true

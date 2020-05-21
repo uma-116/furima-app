@@ -493,10 +493,10 @@ html {
     justify-content: space-between;
 
     &__images {
-      background-color: #fafafa;
       width: 300px;
       max-height: 555px;
       &__active {
+        background-color: #fafafa;
         &__image{
           width: 300px;
           height: 375px;
@@ -505,6 +505,7 @@ html {
         }
       }
       &__thumbnail {
+        background-color: #fafafa;
         display: flex;
         flex-wrap: wrap;
         width: 100%;
@@ -596,27 +597,27 @@ html {
     &__management {
       display: flex;
       justify-content: space-between;
-      margin: 27px 85px;
-      line-height: 50px;
+      margin: 35px 0 20px;
+      line-height: 60px;
       font-weight: bold;
       &__edit {
-        width: 200px;
+        width: 48%;
         display: block;
         background-color: #f5f5f5;
-        font-size: 22px;
+        font-size: 26px;
         text-align: center;
-        border-radius: 10px;
+        border-radius: 30px;
         #edit {
-          color: #333;;
+          color: #333;
         }
       }
       &__destroy {
-        width: 200px;
+        width: 48%;
         display: block;
         background-color: #333;
-        font-size: 22px;
+        font-size: 24px;
         text-align: center;
-        border-radius: 10px;
+        border-radius: 30px;
         #destroy {
           color: #f5f5f5;
         }
@@ -626,12 +627,12 @@ html {
     &__buy {
       display: block;
       background-color: #3CCACE;
-      font-size: 24px;
+      font-size: 27px;
       line-height: 60px;
-      margin: 30px 50px;
+      margin: 35px 0 20px;
       font-weight: bold;
       text-align: center;
-      border-radius: 10px;
+      border-radius: 30px;
       #buy {
         color: #ffffff;
       }  
@@ -652,9 +653,9 @@ html {
   }
 
   &__detail {
-    padding: 24px 0px 0px;
-    line-height: 1.5;
-    font-size: 14px;
+    margin: 30px 10px 0;
+    line-height: 2;
+    font-size: 15px;
   }
 }
 
@@ -672,6 +673,7 @@ html {
     &__yet {
       text-align: center;
       font-size: 16px;
+      margin-bottom: 5px;
     }
     &__info {
       display: flex;
@@ -724,13 +726,12 @@ html {
     }
     &__btn {
       width: 60%;
-      margin-top: 20px;
+      margin: 30px 0;
       background-color: #3CCACE;
-      border-radius: 10px;
+      border-radius: 30px;
       color: #ffffff;
-      font-size: 18px;
-      line-height: 48px;
-      margin-bottom: 40px;
+      font-size: 19px;
+      line-height: 50px;
       border: #3CCACE
     }
   }
@@ -743,6 +744,43 @@ html {
     #unregist {
       color: #3CCACE;
       font-weight: bold;
+    }
+  }
+}
+
+// destroyページのSCSS
+.succes {
+  background-color: #f5f5f5;
+  &__wall {
+    background-color: #ffffff;
+    margin: 60px auto 80px;
+    padding: 35px 40px;
+    width: 700px;
+    text-align: center;
+    font-weight: bold;
+    &__msg {
+      font-size: 20px;
+    }
+    &__btn {
+      font-size: 24px;
+      &__mypage {
+        background-color: #3CCACE;
+        border-radius: 30px;
+        line-height: 48px;
+        margin: 45px 60px 0;
+        #mypage {
+          color: #ffffff;
+        }
+      }
+      &__index {
+        background-color: #3CCACE;
+        border-radius: 30px;
+        line-height: 48px;
+        margin: 15px 60px 0;
+        #index {
+          color: #ffffff;
+        }
+      }
     }
   }
 }

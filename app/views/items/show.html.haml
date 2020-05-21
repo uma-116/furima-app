@@ -79,10 +79,8 @@
             = link_to '#', id: 'edit' do
               編集する
           .detail-wrapper__btn__management__destroy
-            -# 商品削除機能実装時、コメントアウト外す
-            -# = link_to edit_item_path(@item.id), id: 'destroy' do
-            = link_to '#', id: 'destroy' do
-              出品をやめる
+            = link_to item_path, id: 'destroy', method: :DELETE do
+              商品を削除する
       - elsif user_signed_in?
         .detail-wrapper__btn__buy
           = link_to '#', id: 'buy' do
@@ -103,7 +101,7 @@
   .comment__index
     - if @comments.empty?
       .comment__index__yet
-        まだコメントはありません。
+        コメントはありません。
     - else
       - @comments.each do |c|
         .comment__index__info
