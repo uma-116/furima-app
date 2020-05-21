@@ -36,7 +36,8 @@
           カテゴリー
           %span.required
             必須
-        = f.collection_select :category_id, @parents, :id, :name, {prompt: "選択してください"}, class: "content__main__item-info-box__category"
+        .jsCategory
+          = f.collection_select :category_id, @parents, :id, :name, {prompt: "選択してください"}, class: "content__main__item-info-box__category"
         .text-bold
           ブランド
         = f.text_field :brand, class:"content__main__item-info-box__brand-field", placeholder: "例）シャネル"

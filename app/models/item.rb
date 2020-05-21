@@ -15,8 +15,8 @@ class Item < ApplicationRecord
   belongs_to :seller, class_name: "User", foreign_key: "seller_id"
   belongs_to :buyer, class_name: "User", foreign_key: "buyer_id", optional: true
 
-  # validation
-  validates_associated :images
+  # 商品出品時のバリテーションだが、不要な可能性があるためコメントアウト（前田さん確認中）
+  # validates_associated :images
   validates :images, presence: true
 
   validates :name, :detail, :condition_id, :category_id, :price, :fee_id, :prefecture_id, :shipping_id, presence: true
