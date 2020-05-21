@@ -26,6 +26,9 @@ class ItemsController < ApplicationController
   def edit
   end
 
+  def destroy
+  end
+
   def show
     @item = Item.includes([:seller, :images, :category, :comments]).find(params[:id])
     @comment = Comment.new
