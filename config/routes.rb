@@ -16,7 +16,6 @@ Rails.application.routes.draw do
     resources :purchases, only: [:index] do
       collection do
         post 'pay', to: 'purchases#pay'
-        end
       end
     end
   
@@ -36,6 +35,6 @@ Rails.application.routes.draw do
       get "log_in"
       get "new_user"
     end
-  end 
+  end
 end
 
