@@ -24,12 +24,12 @@ Rails.application.routes.draw do
     end
   
     resources :items do
-    get "set_parents"
-    get "set_children"
-    get "set_grandchildren"
-    
-    get "set_grandzchildren"
-    end
+      get "set_parents"
+      get "set_children"
+      get "set_grandchildren"
+      
+      get "set_grandzchildren"
+      end
     resources :comments, only: :create
   end
 
