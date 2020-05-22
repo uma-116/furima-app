@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
     @items = Item.limit(3).order('created_at DESC').where("buyer_id is NULL")
@@ -21,36 +22,32 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
+  end
+
   def edit
-    @item = Item.find(params[:id])
   end
 
   def update
-    item = Item.find(params[:id])
-    if item.seller_id == current_user.id
-      if item.update(item_params)
-      redirect_to item_path(item.id), notice: '商品を更新しました'
+    if @item.seller_id == current_user.id
+      if @item.update(item_params)
+      redirect_to item_path(@item.id), notice: '商品を更新しました'
       else
         redirect_to edit_item_path, notice: '更新に失敗しました'
       end
     else
-      redirect_to item_path(item.id)
+      redirect_to item_path(@item.id)
     end
   end
 
   def destroy
-    item = Item.find(params[:id])
-    if item.seller_id == current_user.id
-      item.destroy
+    if @item.seller_id == current_user.id
+      @item.destroy
     else
       redirect_to item_path(params[:id])
     end
-  end
-
-  def show
-    @item = Item.includes([:seller, :images, :category, :comments]).find(params[:id])
-    @comment = Comment.new
-    @comments = @item.comments.includes(:user)
   end
 
   def set_parents
@@ -72,5 +69,9 @@ class ItemsController < ApplicationController
 
   def move_to_index
     redirect_to action: :index unless user_signed_in?
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
