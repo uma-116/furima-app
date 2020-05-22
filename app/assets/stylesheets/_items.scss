@@ -47,6 +47,7 @@ html {
       &__search-box {
         margin-left: auto;
         width: 100%;
+
         margin-bottom: 8px;
         display: flex;
         &--text {
@@ -97,8 +98,8 @@ html {
         text-decoration: none;
       }
       a {
-       color: #333;
-       text-decoration: none;
+        color: #333;
+        text-decoration: none;
       }
     }
   }
@@ -161,8 +162,8 @@ html {
       margin-bottom: 25px;
       padding-bottom: 15px;
       position: relative;
-     }
-     &__title::after {
+    }
+    &__title::after {
       content: "";
       width: 70px;
       height: 4px;
@@ -171,7 +172,7 @@ html {
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-     }     
+    }     
     &__lists {
       text-align: center;
       display: flex;
@@ -308,7 +309,7 @@ html {
           font-weight: 200;
           text-align: left;
         }
-       }
+      }
     }
   }
   &__top-pickup-contents {
@@ -356,39 +357,45 @@ html {
           a {
             background-color: #fff;
             display: inline-block;
-         }
-         &__image {
-          width: 220px;
-          height: 150px;
-          position: relative;
-          overflow: hidden;
-          margin: 0;
-          z-index: auto;
-          text-align: center;
-         }
-         &__body {
-          background-color: white;
-          color: #333;
-          padding: 16px;
-          &__name {
+          }
+          &__image {
+            width: 220px;
+            height: 160px;
+            position: relative;
             overflow: hidden;
-            line-height: 1.5;
-            font-size: 16px;
-            text-align: left;
+            margin: 0;
+            z-index: auto;
+            text-align: center;
+              #cover {
+                width: 220px;
+                height: 160px;
+                object-fit: cover;
+                object-position: 50% 40%;
+              }
           }
-          &__details {
-            font-size: 16px;
-            ul {
-              display: flex;
-              align-items: center;
-              justify-content: space-between;
+          &__body {
+            background-color: white;
+            color: #333;
+            padding: 16px;
+            &__name {
+              overflow: hidden;
+              line-height: 1.5;
+              font-size: 16px;
+              text-align: left;
             }
-            p {
-              font-size: 10px;
-              text-align: left;              
+            &__details {
+              font-size: 16px;
+              ul {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+              }
+              p {
+                font-size: 10px;
+                text-align: left;
+              }
             }
           }
-         }          
         }
       }
     }
@@ -503,10 +510,10 @@ html {
     justify-content: space-between;
 
     &__images {
-      background-color: #fafafa;
       width: 300px;
       max-height: 555px;
       &__active {
+        background-color: #fafafa;
         &__image{
           width: 300px;
           height: 375px;
@@ -515,6 +522,7 @@ html {
         }
       }
       &__thumbnail {
+        background-color: #fafafa;
         display: flex;
         flex-wrap: wrap;
         width: 100%;
@@ -606,27 +614,27 @@ html {
     &__management {
       display: flex;
       justify-content: space-between;
-      margin: 27px 85px;
-      line-height: 50px;
+      margin: 35px 0 20px;
+      line-height: 60px;
       font-weight: bold;
       &__edit {
-        width: 200px;
+        width: 48%;
         display: block;
         background-color: #f5f5f5;
-        font-size: 22px;
+        font-size: 26px;
         text-align: center;
-        border-radius: 10px;
+        border-radius: 30px;
         #edit {
-          color: #333;;
+          color: #333;
         }
       }
       &__destroy {
-        width: 200px;
+        width: 48%;
         display: block;
         background-color: #333;
-        font-size: 22px;
+        font-size: 24px;
         text-align: center;
-        border-radius: 10px;
+        border-radius: 30px;
         #destroy {
           color: #f5f5f5;
         }
@@ -636,12 +644,12 @@ html {
     &__buy {
       display: block;
       background-color: #3CCACE;
-      font-size: 24px;
+      font-size: 27px;
       line-height: 60px;
-      margin: 30px 50px;
+      margin: 35px 0 20px;
       font-weight: bold;
       text-align: center;
-      border-radius: 10px;
+      border-radius: 30px;
       #buy {
         color: #ffffff;
       }  
@@ -662,9 +670,9 @@ html {
   }
 
   &__detail {
-    padding: 24px 0px 0px;
-    line-height: 1.5;
-    font-size: 14px;
+    margin: 30px 10px 0;
+    line-height: 2;
+    font-size: 15px;
   }
 }
 
@@ -682,6 +690,7 @@ html {
     &__yet {
       text-align: center;
       font-size: 16px;
+      margin-bottom: 5px;
     }
     &__info {
       display: flex;
@@ -734,13 +743,12 @@ html {
     }
     &__btn {
       width: 60%;
-      margin-top: 20px;
+      margin: 30px 0;
       background-color: #3CCACE;
-      border-radius: 10px;
+      border-radius: 30px;
       color: #ffffff;
-      font-size: 18px;
-      line-height: 48px;
-      margin-bottom: 40px;
+      font-size: 19px;
+      line-height: 50px;
       border: #3CCACE
     }
   }
@@ -757,6 +765,44 @@ html {
   }
 }
 
+// destroyページのSCSS
+.succes {
+  background-color: #f5f5f5;
+  &__wall {
+    background-color: #ffffff;
+    margin: 60px auto 80px;
+    padding: 35px 40px;
+    width: 700px;
+    text-align: center;
+    font-weight: bold;
+    &__msg {
+      font-size: 20px;
+    }
+    &__btn {
+      font-size: 24px;
+      &__mypage {
+        background-color: #3CCACE;
+        border-radius: 30px;
+        line-height: 48px;
+        margin: 45px 60px 0;
+        #mypage {
+          color: #ffffff;
+        }
+      }
+      &__index {
+        background-color: #3CCACE;
+        border-radius: 30px;
+        line-height: 48px;
+        margin: 15px 60px 0;
+        #index {
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}
+
 body {
+  background-color: #f5f5f5;
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
 }

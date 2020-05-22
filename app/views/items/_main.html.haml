@@ -103,9 +103,9 @@
       .main__top-pickup-contents__product-box__lists
         -@items.each do |item|
           .main__top-pickup-contents__product-box__lists__list
-            = link_to "#" do
+            = link_to item_path(item.id) do
               %figure.main__top-pickup-contents__product-box__lists__list__image
-                = image_tag item.images.find_by(item_id: item.id).img_url, size: "220x150",alt: "ICON"
+                = image_tag item.images.find_by(item_id: item.id).img_url, size: "220x150",alt: "ICON", id: "cover"
 
               .main__top-pickup-contents__product-box__lists__list__body
                 .main__top-pickup-contents__product-box__lists__list__body__name
@@ -114,7 +114,7 @@
                 .main__top-pickup-contents__product-box__lists__list__body__details
                   %ul
                     %li
-                      #{item.price}円
+                      = "#{item.price.to_s(:delimited)}円"
                     %li.main__top-pickup-contents__product-box__lists__list__body__details__link-icon
                       %span
                         ★
@@ -130,9 +130,9 @@
       .main__top-pickup-contents__product-box__lists
         -@ladies_items.each do |item|
           .main__top-pickup-contents__product-box__lists__list
-            = link_to "#" do
+            = link_to item_path(item.id) do
               %figure.main__top-pickup-contents__product-box__lists__list__image
-                = image_tag item.images.find_by(item_id: item.id).img_url, size: "220x150",alt: "ICON"
+                = image_tag item.images.find_by(item_id: item.id).img_url, size: "220x150",alt: "ICON", id: "cover"
 
               .main__top-pickup-contents__product-box__lists__list__body
                 .main__top-pickup-contents__product-box__lists__list__body__name
@@ -141,7 +141,7 @@
                 .main__top-pickup-contents__product-box__lists__list__body__details
                   %ul
                     %li
-                      #{item.price}円
+                      = "#{item.price.to_s(:delimited)}円"
                     %li.main__top-pickup-contents__product-box__lists__list__body__details__link-icon
                       %span
                         ★
@@ -157,9 +157,9 @@
       .main__top-pickup-contents__product-box__lists
         -@mens_items.each do |item|
           .main__top-pickup-contents__product-box__lists__list
-            = link_to "#" do
+            = link_to item_path(item.id) do
               %figure.main__top-pickup-contents__product-box__lists__list__image
-                = image_tag item.images.find_by(item_id: item.id).img_url, size: "220x150",alt: "ICON"
+                = image_tag item.images.find_by(item_id: item.id).img_url, size: "220x150",alt: "ICON", id: "cover"
 
               .main__top-pickup-contents__product-box__lists__list__body
                 .main__top-pickup-contents__product-box__lists__list__body__name
@@ -168,7 +168,7 @@
                 .main__top-pickup-contents__product-box__lists__list__body__details
                   %ul
                     %li
-                      #{item.price}円
+                      = "#{item.price.to_s(:delimited)}円"
                     %li.main__top-pickup-contents__product-box__lists__list__body__details__link-icon
                       %span
                         ★

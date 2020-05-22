@@ -1,0 +1,15 @@
+= render "header"
+
+.succes
+  .succes__wall
+    .succes__wall__msg
+      商品を削除しました。
+    .succes__wall__btn
+      .succes__wall__btn__mypage
+        = link_to user_path(current_user), id: 'mypage' do
+          マイページに戻る
+      .succes__wall__btn__index
+        = link_to root_path, id: 'index' do
+          トップページに戻る
+
+= render "footer"
