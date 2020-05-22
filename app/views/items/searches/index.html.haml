@@ -1,0 +1,27 @@
+.wrapper
+  = render "items/header"
+.main__top-pickup-contents__product-box__search-word
+  ="「#{params[:keyword]}」の検索結果：#{@count}件"
+.main__top-pickup-contents__product-box__lists
+  
+  -@items.each do |item|
+    .main__top-pickup-contents__product-box__lists__list
+      = link_to "#" do
+        %figure.main__top-pickup-contents__product-box__lists__list__image
+          = image_tag item.images.find_by(item_id: item.id).img_url, size: "220x150",alt: "ICON"
+
+        .main__top-pickup-contents__product-box__lists__list__body
+          .main__top-pickup-contents__product-box__lists__list__body__name
+            %h3
+              = "#{item.name}"
+          .main__top-pickup-contents__product-box__lists__list__body__details
+            %ul
+              %li
+                #{item.price}円
+              %li.main__top-pickup-contents__product-box__lists__list__body__details__link-icon
+                %span
+                  ★
+                ０
+            %p
+              (税込)
+

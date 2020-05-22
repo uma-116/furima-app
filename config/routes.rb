@@ -11,6 +11,10 @@ Rails.application.routes.draw do
 
   root 'items#index'
 
+  namespace :items do
+    resources :searches, only: :index
+  end
+  
   resources :items do
 
     resources :purchases, only: [:index] do
@@ -19,7 +23,13 @@ Rails.application.routes.draw do
       end
     end
   
-
+    resources :items do
+      get "set_parents"
+      get "set_children"
+      get "set_grandchildren"
+      
+      get "set_grandzchildren"
+      end
     resources :comments, only: :create
   end
 
@@ -28,6 +38,7 @@ Rails.application.routes.draw do
         post 'pay', to: 'credit_cards#pay'
       end
     end
+ 
 
   get "category/set_parents", to: "items#set_parents"
   get "category/set_children", to: "items#set_children"
