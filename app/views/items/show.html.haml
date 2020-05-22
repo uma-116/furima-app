@@ -1,23 +1,27 @@
 = render "header"
-
-.item-wrapper
-  %h1.item-wrapper__title
+.detail-wrapper
+  %h1.detail-wrapper__title
     = @item.name
-  .item-wrapper__main-content
-    .item-wrapper__main-content__image
-      -# ここに画像を表示する
-      -# = image_tag
-    %table.item-wrapper__main-content__status
-      %tr.item-wrapper__main-content__status__table
-        %td.item-wrapper__main-content__status__table__left
+  .detail-wrapper__content
+    .detail-wrapper__content__images
+      .detail-wrapper__content__images__active
+        = image_tag @item.images[0].img.url, class: "detail-wrapper__content__images__active__image"
+      - if @item.images[1].present?
+        %ul.detail-wrapper__content__images__thumbnail
+          - @item.images[1..-1].each do |images|
+            %li.detail-wrapper__content__images__thumbnail__list
+              = image_tag images.img.url, class: "detail-wrapper__content__images__thumbnail__list__image"
+    %table.detail-wrapper__content__table
+      %tr
+        %td
           出品者
-        %th.item-wrapper__main-content__status__table__right
-          = link_to "#", id: 'user' do
+        %th
+          = link_to '#', id: 'user' do
             = @item.seller.nickname
-      %tr.item-wrapper__main-content__status__table
-        %td.item-wrapper__main-content__status__table__left
+      %tr
+        %td
           カテゴリー
-        %th.item-wrapper__main-content__status__table__right
+        %th
           = link_to '#', id: 'category' do
             = @item.category.parent.parent.name
             %br
@@ -26,96 +30,112 @@
             %br
             %i{class: "fas fa-chevron-right"}
             = @item.category.name
-      %tr.item-wrapper__main-content__status__table
-        %td.item-wrapper__main-content__status__table__left
+      %tr
+        %td
           ブランド
-        %th.item-wrapper__main-content__status__table__right
+        %th
           = link_to '#', id: 'brand' do
             = @item.brand
-      %tr.item-wrapper__main-content__status__table
-        %td.item-wrapper__main-content__status__table__left
+      %tr
+        %td
           商品の状態
-        %th.item-wrapper__main-content__status__table__right
-          = @status.name
-      %tr.item-wrapper__main-content__status__table
-        %td.item-wrapper__main-content__status__table__left
+        %th
+          = @item.condition.name
+      %tr
+        %td
           配送料の負担
-        %th.item-wrapper__main-content__status__table__right
-          = @fee.name
-      %tr.item-wrapper__main-content__status__table
-        %td.item-wrapper__main-content__status__table__left
+        %th
+          = @item.fee.name
+      %tr
+        %td
           配送元地域
-        %th.item-wrapper__main-content__status__table__right
-          = @prefecture.name
-      %tr.item-wrapper__main-content__status__table
-        %td.item-wrapper__main-content__status__table__left
+        %th
+          = @item.prefecture.name
+      %tr
+        %td
           発送の目安
-        %th.item-wrapper__main-content__status__table__right
-          = @shipping.name
+        %th
+          = @item.shipping.name
 
-  .item-wrapper__price
-    %span.item-wrapper__price__icon
+  .detail-wrapper__price
+    %span.detail-wrapper__price__icon
       ¥
-    %span.item-wrapper__price__item
+    %span.detail-wrapper__price__figure
       = @item.price.to_s(:delimited)
-    %span.item-wrapper__price__tax
+    %span.detail-wrapper__price__tax
       (税込み)
-    %span.item-wrapper__price__postage-side
+    %span.detail-wrapper__price__fee
       送料込み
-  .item-wrapper__btn-wrapper
-    - if user_signed_in? && current_user.id == @item.seller_id
-      .item-wrapper__btn-wrapper__edit-destroy-btn
-        .item-wrapper__btn-wrapper__edit-destroy-btn__edit-btn
-          = link_to '#', id: 'edit-btn' do
-            編集する
-        .item-wrapper__btn-wrapper__edit-destroy-btn__destroy-btn
-          = link_to '#', id: 'destroy-btn' do
-            出品をやめる
-    - elsif user_signed_in?
-      .item-wrapper__btn-wrapper__buy-btn
-        = link_to href: '#', id: 'buy-btn' do
-          購入する
-    - else
-      .item-wrapper__btn-wrapper__not-current
-        商品の購入には
-        = link_to '#', id: 'buy-not-current' do
-          新規登録
-        &thinsp;または&thinsp;
-        = link_to '#', id: 'buy-not-current' do
-          ログイン
-        が必要です。
-  .item-wrapper__description
-    %p.item-wrapper__description__inner
+  .detail-wrapper__btn
+    - if @item.buyer_id.present?
+      .detail-wrapper__btn__sold
+        この商品は売り切れました
+    - elsif @item.buyer_id.nil?
+      - if user_signed_in? && current_user.id == @item.seller_id
+        .detail-wrapper__btn__management
+          .detail-wrapper__btn__management__edit
+            -# 商品編集機能実装時、コメントアウト外す
+            -# = link_to edit_item_path(@item.id), id: 'edit' do
+            = link_to '#', id: 'edit' do
+              編集する
+          .detail-wrapper__btn__management__destroy
+            -# 商品削除機能実装時、コメントアウト外す
+            -# = link_to edit_item_path(@item.id), id: 'destroy' do
+            = link_to '#', id: 'destroy' do
+              出品をやめる
+      - elsif user_signed_in?
+        .detail-wrapper__btn__buy
+          = link_to '#', id: 'buy' do
+            購入する
+      - else
+        .detail-wrapper__btn__unregist
+          商品の購入には
+          = link_to new_user_registration_path, id: 'unregist' do
+            新規登録
+          &thinsp;または&thinsp;
+          = link_to new_user_session_path, id: 'unregist' do
+            ログイン
+          が必要です。
+  .detail-wrapper__detail
+    %p.detail-wrapper__detail__inner
       = @item.detail
-
-.comment-wrapper
-  .comment-wrapper__index
-    - @comments.each do |c|
-      .comment-wrapper__index__info
-        %p
-          %strong
-            .comment-wrapper__index__info__user
-              = link_to c.user.nickname, "#"
-            .comment-wrapper__index__info__date
-              = c.created_at
-      .comment-wrapper__index__content
-        = c.comment
-  - if user_signed_in?
-    .comment-wrapper__form
-      = form_with model: [@item, @comment], local: true do |f|
-        = f.text_area :comment, class: 'comment-wrapper__form__text', placeholder: "コメントを入力", rows: "3"
-        .comment-wrapper__form__msg
-          相手のことを考え丁寧なコメントを心がけましょう。
-          %br
-          不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        = f.submit "コメントを送信する", class: "comment-wrapper__form__btn"
-  - else
-    .comment-wrapper__not-current
-      コメントの投稿には
-      = link_to '#', id: 'not-current' do
-        新規登録
-      &thinsp;または&thinsp;
-      = link_to '#', id: 'not-current' do
-        ログイン
-      が必要です。
+.comment
+  .comment__index
+    - if @comments.empty?
+      .comment__index__yet
+        まだコメントはありません。
+    - else
+      - @comments.each do |c|
+        .comment__index__info
+          %p
+            %strong
+              .comment__index__info__user
+                = link_to c.user.nickname, "#"
+              .comment__index__info__date
+                = c.created_at
+        .comment__index__content
+          = c.comment
+          
+    - if @item.buyer_id.present?
+      .comment__sold
+        ー 売り切れた商品にコメントは出来ません ー
+    - elsif @item.buyer_id.nil?
+      - if user_signed_in?
+        .comment__form
+          = form_with model: [@item, @comment], local: true do |f|
+            = f.text_area :comment, class: 'comment__form__text', placeholder: "コメントを入力", rows: "3"
+            .comment__form__msg
+              相手のことを考え丁寧なコメントを心がけましょう。
+              %br
+              不快な言葉遣いなどは利用制限や退会処分となることがあります。
+            = f.submit "コメントを送信する", class: "comment__form__btn"
+      - else
+        .comment__unregist
+          コメントの投稿には
+          = link_to new_user_registration_path, id: 'unregist' do
+            新規登録
+          &thinsp;または&thinsp;
+          = link_to new_user_session_path, id: 'unregist' do
+            ログイン
+          が必要です。
 = render "footer"

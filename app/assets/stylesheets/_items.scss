@@ -470,7 +470,9 @@ html {
   height: 100%;
 }
 
-.item-wrapper {
+
+// showページのSCSS
+.detail-wrapper {
   background-color: #ffffff;
   margin: 40px auto 20px;
   padding: 24px 40px 40px;
@@ -485,31 +487,55 @@ html {
     line-height: 1.4;
   }
 
-  &__main-content {
+  &__content {
     margin: 16px 0px 0px;
     display: flex;
     justify-content: space-between;
 
-    &__image {
+    &__images {
       background-color: #fafafa;
       width: 300px;
-      height: 375px;
-      text-align: center;
-      line-height: 200px;
-      font-weight: 600;
+      max-height: 555px;
+      &__active {
+        &__image{
+          width: 300px;
+          height: 375px;
+          object-fit: contain;
+          vertical-align: bottom;
+        }
+      }
+      &__thumbnail {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        li {
+          width: 20%;
+        }
+        &__list {
+          &__image {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            vertical-align: bottom;
+          }
+        }
+      }
+      &__thumbnail:empty {
+        background-color: #ffffff;
+      }
     }
 
-    &__status {
+    &__table {
       width: 100%;
       max-width: 300px;
       height: 420px;
       margin: 0 auto;
 
-      &__table {
+      tr {
         border: 1px solid #f5f5f5;
         font-size: 14px;
         
-        &__left {
+        td {
           text-align: left;
           width: 39%;
           font-weight: 400;
@@ -517,7 +543,7 @@ html {
           padding: 8px;
         }
 
-        &__right {
+        th {
           width: 61%;
           background-color: #ffffff;
           padding: 8px;
@@ -543,7 +569,7 @@ html {
       display: inline-block;
     }
 
-    &__item {
+    &__figure {
       font-size: 50px;
     }
 
@@ -551,78 +577,88 @@ html {
       font-size: 10px;
     }
 
-    &__postage-side {
+    &__fee {
       font-size: 16px;
     }
   }
 
-  &__btn-wrapper {
-    &__edit-destroy-btn {
+  &__btn {
+    &__sold {
+      background-color: #f5f5f5;
+      color: #333;
+      margin: 30px 50px;
+      text-align: center;
+      line-height: 60px;
+      font-weight: bold;
+      font-size: 20px;
+      border-radius: 10px;
+    }
+    &__management {
       display: flex;
       justify-content: space-between;
       margin: 27px 85px;
       line-height: 50px;
       font-weight: bold;
-      &__edit-btn {
+      &__edit {
         width: 200px;
         display: block;
         background-color: #f5f5f5;
         font-size: 22px;
         text-align: center;
         border-radius: 10px;
-        #edit-btn {
+        #edit {
           color: #333;;
         }
       }
-      &__destroy-btn {
+      &__destroy {
         width: 200px;
         display: block;
         background-color: #333;
         font-size: 22px;
         text-align: center;
         border-radius: 10px;
-        #destroy-btn {
+        #destroy {
           color: #f5f5f5;
         }
       }
     }
 
-    &__buy-btn {
+    &__buy {
       display: block;
       background-color: #3CCACE;
       font-size: 24px;
       line-height: 60px;
       margin: 30px 50px;
-      font-weight: 600;
+      font-weight: bold;
       text-align: center;
       border-radius: 10px;
-      #buy-btn {
+      #buy {
         color: #ffffff;
       }  
     }
 
-    &__not-current {
+    &__unregist {
       width: 90%;
       display: block;
       font-size: 15px;
       line-height: 40px;
       margin: 30px auto 0;
       text-align: center;
-      #buy-not-current {
+      #unregist {
         color: #3CCACE;
         font-weight: bold;
       }
     }
   }
 
-  &__description {
+  &__detail {
     padding: 24px 0px 0px;
     line-height: 1.5;
     font-size: 14px;
   }
 }
 
-.comment-wrapper{
+.comment {
   background-color: #ffffff;
   margin: 20px auto 40px;
   padding: 24px 40px 0px;
@@ -633,6 +669,10 @@ html {
 
   &__index {
     text-align: left;
+    &__yet {
+      text-align: center;
+      font-size: 16px;
+    }
     &__info {
       display: flex;
       margin-bottom: 2px;
@@ -657,7 +697,17 @@ html {
     }
   }
 
+  &__sold {
+    padding: 25px 0 15px;
+    color: #333;
+    font-size: 16px;
+    line-height: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
   &__form {
+    text-align: center;
     &__text {
       width: 100%;
       margin: 20px 0px 15px;
@@ -685,12 +735,12 @@ html {
     }
   }
 
-  &__not-current {
+  &__unregist {
     text-align: center;
     margin-top: 20px;
     font-size: 14px;
     padding-bottom: 20px;
-    #not-current {
+    #unregist {
       color: #3CCACE;
       font-weight: bold;
     }

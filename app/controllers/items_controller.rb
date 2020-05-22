@@ -2,9 +2,9 @@ class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
-    @items = Item.limit(3).order('created_at DESC')
-    @mens_items = Item.where(category_id: 196..326).limit(3).order('created_at DESC')
-    @ladies_items = Item.where(category_id: 1..195).limit(3).order('created_at DESC')
+    @items = Item.limit(3).order('created_at DESC').where("buyer_id is NULL")
+    @mens_items = Item.where(category_id: 196..326).limit(3).order('created_at DESC').where("buyer_id is NULL")
+    @ladies_items = Item.where(category_id: 1..195).limit(3).order('created_at DESC').where("buyer_id is NULL")
   end
 
   def new
@@ -24,20 +24,13 @@ class ItemsController < ApplicationController
   def edit
   end
 
-  def show
-    @item = Item.includes([:seller, :images, :category, :comments]).find(params[:id])
-
-    @comment = Comment.new
-    @comments = @item.comments.includes(:user)
-    @fee = Fee.find(params[:id])
-    @status = Status.find(params[:id])
-    @shipping = Shipping.find(params[:id])
-    @prefecture = Prefecture.find(params[:id])
+  def destroy
   end
 
-  private
-  def item_params
-    params.require(:item).permit( :name, :detail, :category_id, :condition, :postage, :ship_from, :ship_date, :price, :brand, images_attributes: [:img]).merge(seller_id: current_user.id)
+  def show
+    @item = Item.includes([:seller, :images, :category, :comments]).find(params[:id])
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
   end
 
   def set_parents
@@ -49,7 +42,12 @@ class ItemsController < ApplicationController
   end
 
   def set_grandchildren
-    @grandchildren = Category.where(ancestry: params[:ancestry])
+    @grandchildren = Category.where('ancestry LIKE ?', "%/#{params[:child_id]}")
+  end
+
+  private
+  def item_params
+    params.require(:item).permit(:name, :detail, :category_id, :condition_id, :fee_id, :prefecture_id, :shipping_id, :price, :brand, images_attributes: [:img]).merge(seller_id: current_user.id)
   end
 
   def move_to_index

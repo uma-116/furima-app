@@ -7,13 +7,10 @@ class User < ApplicationRecord
 
   # 販売中 → 自分のseller_idが入っていて、buyer_idが入っていないitem
   has_many :selling_items,  -> { where("buyer_id is NULL") }, class_name: "item", foreign_key: "seller_id"
-
   # 買った商品 → 自分のbuyer_idが入っているitem
   has_many :bought_items, class_name: "item", foreign_key: "buyer_id"  
-
   # 売却済み商品 → 自分のseller_id が入っていて、buyer_idが入ってるitem
   has_many :sold_items,  -> { where("buyer_id is not NULL") }, class_name: "item", foreign_key: "seller_id"
-
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
