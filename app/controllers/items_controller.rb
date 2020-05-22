@@ -22,6 +22,20 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    item = Item.find(params[:id])
+    if item.seller_id == current_user.id
+      if item.update(item_params)
+      redirect_to item_path(item.id), notice: '商品を更新しました'
+      else
+        redirect_to edit_item_path, notice: '更新に失敗しました'
+      end
+    else
+      redirect_to item_path(item.id)
+    end
   end
 
   def destroy
@@ -53,7 +67,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :detail, :category_id, :condition_id, :fee_id, :prefecture_id, :shipping_id, :price, :brand, images_attributes: [:img]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :detail, :category_id, :condition_id, :fee_id, :prefecture_id, :shipping_id, :price, :brand, images_attributes: [:img,:_destroy,:id]).merge(seller_id: current_user.id)
   end
 
   def move_to_index
