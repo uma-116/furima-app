@@ -83,7 +83,7 @@
               商品を削除する
       - elsif user_signed_in?
         .detail-wrapper__btn__buy
-          = link_to '#', id: 'buy' do
+          = link_to "#{@item.id}/purchases", id: 'buy' do
             購入する
       - else
         .detail-wrapper__btn__unregist
