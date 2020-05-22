@@ -67,7 +67,6 @@ ActiveRecord::Schema.define(version: 2020_05_21_093839) do
     t.integer "prefecture_id", null: false
     t.integer "shipping_id", null: false
     t.string "brand"
-    t.integer "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "buyer_id"
@@ -100,5 +99,4 @@ ActiveRecord::Schema.define(version: 2020_05_21_093839) do
   add_foreign_key "comments", "items"
   add_foreign_key "comments", "users"
   add_foreign_key "images", "items"
-  add_foreign_key "items", "categories"
 end
