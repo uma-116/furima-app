@@ -29,13 +29,14 @@ class ItemsController < ApplicationController
   def edit
   end
 
+  def destroy
+  end
+
   def show
     @item = Item.includes([:seller, :images, :category, :comments]).find(params[:id])
     @comment = Comment.new
     @comments = @item.comments.includes(:user)
   end
-
-
 
   def set_parents
     @parents  = Category.where(ancestry: nil)
