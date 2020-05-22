@@ -1,11 +1,6 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
-  #トップページが表示できないため、コメントアウト
-  # def index
-  #   @items = Item.includes(:images).order('created_at DESC')
-  # end
-
   def index
     @items = Item.limit(3).order('created_at DESC').where("buyer_id is NULL")
     @mens_items = Item.where(category_id: 196..326).limit(3).order('created_at DESC').where("buyer_id is NULL")
@@ -30,6 +25,12 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    item = Item.find(params[:id])
+    if item.seller_id == current_user.id
+      item.destroy
+    else
+      redirect_to item_path(params[:id])
+    end
   end
 
   def show
