@@ -33,7 +33,6 @@ Rails.application.routes.draw do
   get "category/set_children", to: "items#set_children"
   get "category/set_grandchildren", to: "items#set_grandchildren"
 
-
   resources :users, only: [:show] do
     collection do
       get "log_in"
