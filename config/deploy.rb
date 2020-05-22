@@ -20,6 +20,9 @@ set :keep_releases, 5
 
 set :linked_files, %w{ config/master.key }
 
+#下１行試しに追加
+set :linked_files, fetch(:linked_files, []).push("config/master.key")
+
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
