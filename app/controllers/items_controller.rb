@@ -40,8 +40,6 @@ class ItemsController < ApplicationController
     @comments = @item.comments.includes(:user)
   end
 
-
-
   def set_parents
     @parents  = Category.where(ancestry: nil)
   end
