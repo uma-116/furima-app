@@ -18,6 +18,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path, notice: "登録が完了しました"
     else
+      @item.images.new
       render :new
     end
   end

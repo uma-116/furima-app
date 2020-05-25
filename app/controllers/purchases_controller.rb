@@ -38,7 +38,7 @@ class PurchasesController < ApplicationController
       :currency => 'jpy',              #日本円
     )
     @item.update!(buyer_id: current_user.id)
-    redirect_to root_path 
+    redirect_to root_path, notice: '購入完了しました' 
   end
 
   private
