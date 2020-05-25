@@ -70,11 +70,9 @@ ActiveRecord::Schema.define(version: 2020_05_21_093839) do
     t.integer "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-
     t.integer "user_id"
     t.integer "buyer_id"
     t.integer "seller_id"
-
     t.integer "category_id", null: false
   end
 
