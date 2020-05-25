@@ -175,7 +175,7 @@ $main-border-bottom: 1px solid grey;
         }
 
         &__right{
-          // 未定
+          font-size: 18px;
         }
       }
       
@@ -191,7 +191,7 @@ $main-border-bottom: 1px solid grey;
         }
 
         &__right{
-          // 未定
+          font-size: 20px;
         }
       }
       
@@ -272,12 +272,11 @@ $main-border-bottom: 1px solid grey;
 .notifications {
   color: white;
   text-align: center;  
-
   .notice {
-    font-size: 26px;
-    font-weight: 900;
-    height: 60px;
-    line-height: 60px;
-    background-color: #3ccace;
+    font-size: 22px;
+    font-weight: bold;
+    height: 50px;
+    line-height: 55px;
+    background-color: #3CCACE;
   }
 }

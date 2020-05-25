@@ -1,0 +1,41 @@
+// destroyページのSCSS
+.succes {
+  background-color: #f5f5f5;
+  &__wall {
+    background-color: #ffffff;
+    margin: 60px auto 80px;
+    padding: 35px 40px;
+    width: 700px;
+    text-align: center;
+    font-weight: bold;
+    &__msg {
+      font-size: 20px;
+    }
+    &__btn {
+      font-size: 24px;
+      &__mypage {
+        background-color: #3CCACE;
+        border-radius: 30px;
+        line-height: 48px;
+        margin: 45px 60px 0;
+        #mypage {
+          color: #ffffff;
+        }
+      }
+      &__index {
+        background-color: #3CCACE;
+        border-radius: 30px;
+        line-height: 48px;
+        margin: 15px 60px 0;
+        #index {
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}
+
+body {
+  background-color: #f5f5f5;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+}

@@ -74,9 +74,7 @@
       - if user_signed_in? && current_user.id == @item.seller_id
         .detail-wrapper__btn__management
           .detail-wrapper__btn__management__edit
-            -# 商品編集機能実装時、コメントアウト外す
-            -# = link_to edit_item_path(@item.id), id: 'edit' do
-            = link_to '#', id: 'edit' do
+            = link_to edit_item_path(@item.id), id: 'edit' do
               編集する
           .detail-wrapper__btn__management__destroy
             = link_to item_path, id: 'destroy', method: :DELETE do
