@@ -29,6 +29,8 @@ $(function () {
         dataType: "json"
       })
         .done(function (children) {                  // ③html追加
+          $('#jsChildren_id').remove()
+          $('#jsGrandchildren_id').remove()
           var html = buildCategoryForm(children)
           $('.jsCategory').append(html);
         })
@@ -44,6 +46,7 @@ $(function () {
       dataType: "json"
     })
       .done(function (grandchildren) {
+        $('#jsGrandchildren_id').remove()
         var html = buildCategoryForm2(grandchildren)
         $('.jsCategory').append(html);
       })
