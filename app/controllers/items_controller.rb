@@ -28,12 +28,24 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    grandchild_category = @item.category
+    child_category = grandchild_category.parent
+
+    @category_children_array = []
+    Category.where(ancestry: child_category.ancestry).each do |children|
+      @category_children_array << children
+    end
+
+    @category_grandchildren_array = []
+    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
+      @category_grandchildren_array << grandchildren
+    end
   end
 
   def update
     if @item.seller_id == current_user.id
       if @item.update(item_params)
-      redirect_to item_path(@item.id), notice: '商品を更新しました'
+        redirect_to item_path(@item.id), notice: '商品を更新しました'
       else
         redirect_to edit_item_path, notice: '更新に失敗しました'
       end
