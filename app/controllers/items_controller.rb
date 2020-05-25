@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
     @items = Item.limit(3).order('created_at DESC').where("buyer_id is NULL")
@@ -17,26 +18,35 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path, notice: "登録が完了しました"
     else
+      @item.images.new
       render :new
     end
+  end
+
+  def show
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
   end
 
   def edit
   end
 
-  def destroy
-    item = Item.find(params[:id])
-    if item.seller_id == current_user.id
-      item.destroy
+  def update
+    if @item.seller_id == current_user.id
+      if @item.update(item_params)
+      redirect_to item_path(@item.id), notice: '商品を更新しました'
+      else
+        redirect_to edit_item_path, notice: '更新に失敗しました'
+      end
     else
-      redirect_to item_path(params[:id])
+      redirect_to item_path(@item.id)
     end
   end
 
-  def show
-    @item = Item.includes([:seller, :images, :category, :comments]).find(params[:id])
-    @comment = Comment.new
-    @comments = @item.comments.includes(:user)
+  def destroy
+    unless @item.seller_id == current_user.id && @item.destroy
+      redirect_to item_path(params[:id])
+    end
   end
 
   def set_parents
@@ -53,10 +63,14 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :detail, :category_id, :condition_id, :fee_id, :prefecture_id, :shipping_id, :price, :brand, images_attributes: [:img]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :detail, :category_id, :condition_id, :fee_id, :prefecture_id, :shipping_id, :price, :brand, images_attributes: [:img,:_destroy,:id]).merge(seller_id: current_user.id)
   end
 
   def move_to_index
     redirect_to action: :index unless user_signed_in?
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
