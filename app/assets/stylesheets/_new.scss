@@ -283,3 +283,23 @@ $main-border-bottom: 1px solid grey;
     background-color: #3CCACE;
   }
 }
+
+// プレビュー画像
+.image-preview{
+  margin: 10px 10px 10px 0;
+}
+
+.js-remove{
+  margin: 8px 0 16px 0;
+  padding: 3px;
+  background-color: rgb(240, 236, 236);
+  border: 1px solid;
+  display: inline-block;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.js-file_group{
+  border-bottom: 1px dotted  #d6d4d4;
+  margin-bottom: 10px;
+}
