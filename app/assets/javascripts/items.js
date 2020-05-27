@@ -1,12 +1,12 @@
 $(document).on('turbolinks:load', ()=> {
   //投稿枚数制限するために、変数を定義
-  let items_images_limit = 10;
+  let items_images_limit = 11;
 
   // 画像用のinputを生成する関数
   const buildFileField = (index)=> {
-    const html = `<div data-index="${index}" class="js-file_group">
+    const html = `<div data-index="${index}" class="review-file_group">
                     <input class="js-file" type="file" name="item[images_attributes][${index}][img]" id="item_images_attributes_${index}_img"><br>
-                    <div class="js-remove">削除</div>
+                    <div class="preview-remove">削除</div>
                   </div>`;
     return html;
   } 
@@ -22,7 +22,7 @@ $(document).on('turbolinks:load', ()=> {
   let fileIndex = [1,2,3,4,5,6,7,8,9,10];
   
   // 既に使われているindexを除外
-  lastIndex = $('.js-file_group:last').data('index');
+  lastIndex = $('.review-file_group:last').data('index');
   fileIndex.splice(0, lastIndex);
 
   $('.hidden-destroy').hide();
@@ -50,13 +50,13 @@ $(document).on('turbolinks:load', ()=> {
     }
 
     // 投稿枚数制限
-    if ($(".js-file_group").length >= items_images_limit) {
+    if ($(".review-file_group").length >= items_images_limit) {
     alert("これ以上画像投稿できません");
     return false;
     }
   });
   
-  $('#image-box').on('click', '.js-remove', function() {
+  $('#image-box').on('click', '.preview-remove', function() {
     const targetIndex = $(this).parent().data('index')
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
 
