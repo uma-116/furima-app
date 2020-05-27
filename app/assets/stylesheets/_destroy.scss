@@ -4,7 +4,7 @@
   &__wall {
     background-color: #ffffff;
     margin: 60px auto 80px;
-    padding: 35px 40px;
+    padding: 35px 40px 25px;
     width: 700px;
     text-align: center;
     font-weight: bold;
@@ -12,12 +12,12 @@
       font-size: 20px;
     }
     &__btn {
-      font-size: 24px;
+      font-size: 19px;
       &__mypage {
         background-color: #3CCACE;
         border-radius: 30px;
-        line-height: 48px;
-        margin: 45px 60px 0;
+        line-height: 45px;
+        margin: 35px 140px 0;
         #mypage {
           color: #ffffff;
         }
@@ -25,8 +25,8 @@
       &__index {
         background-color: #3CCACE;
         border-radius: 30px;
-        line-height: 48px;
-        margin: 15px 60px 0;
+        line-height: 45px;
+        margin: 17px 140px 0;
         #index {
           color: #ffffff;
         }

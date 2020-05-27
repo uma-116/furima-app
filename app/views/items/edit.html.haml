@@ -13,13 +13,32 @@
         最大10枚までアップロードできます
         %br
           #image-box
+            #preview
+              - @item.images.each_with_index do |image,i|
+                - if image.persisted?
+                  .preview-box{data: {index:i}, id: "preview-box__#{i}"}
+                    .upper-box
+                      = image_tag "#{image.img}", data: {index:i}, class: "edit-image", alt: "preview", id: "image-box__#{i}"
+                    .lower-box
+                      .update-box{data: {index:i}, id: "update-box__#{i}"}
+                        %label.edit-btn 編集
+                      .delete-box{data: {index:i}, id: "delete-box__#{i}"}
+                        %span.delete-btn 削除
+                - else
+                  %label.add-box{for: "item_images_attributes_#{i}_img", data: {index:i}, id: "add-box__#{i}"}
+                    %i.fas.fa-plus
+                      %br
+                      %br
+                      画像を追加
+                  
+
             = f.fields_for :images do |image|
-              %div{data: { index: "#{image.index}"}}
-                = image.file_field :img
-                = image.check_box :_destroy
-                %br
-                  %span.js-remove
-                    削除
+              .add_group{data: {index:image.index}}
+                = image.file_field :img, class: "hidden-field"
+                = image.check_box :_destroy, class: "hidden-destroy"
+
+
+
       .content__main__item-name-box
         .text-bold
           商品名
@@ -97,7 +116,7 @@
           -#.content__main__price-box__profit-inner__right
             [販売価格 - 手数料 の合計値が入ります]        
       .content__main__botton-box
-        = f.submit "出品する", class: "content__main__botton-box__send-botton"
+        = f.submit "更新する", class: "content__main__botton-box__send-botton"
         -# = f.submit "下書きに保存", class: "content__main__botton-box__draft-botton"
         .content__main__botton-box__draft-botton
           = link_to "#", class: "back-btn" do

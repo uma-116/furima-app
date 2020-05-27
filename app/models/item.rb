@@ -8,7 +8,12 @@ class Item < ApplicationRecord
 
   # items table association
   has_many :images, dependent: :destroy
-  accepts_nested_attributes_for :images, allow_destroy: true
+  accepts_nested_attributes_for :images, allow_destroy: true, reject_if: :no_image
+
+  def no_image(attributes)
+    attributes[:img].blank?
+  end
+
 
   has_many :comments, dependent: :destroy
 
@@ -16,7 +21,7 @@ class Item < ApplicationRecord
   belongs_to :seller, class_name: "User", foreign_key: "seller_id"
   belongs_to :buyer, class_name: "User", foreign_key: "buyer_id", optional: true
 
-  accepts_nested_attributes_for :images, allow_destroy: true
+
 
   validates :images, presence: true
 
