@@ -1,0 +1,5 @@
+class AddFirstNameKanaToAddresses < ActiveRecord::Migration[5.2]
+  def change
+    add_column :addresses, :firstname_kana, :string, null: false
+  end
+end
