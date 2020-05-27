@@ -41,12 +41,12 @@
           margin: 0;
           z-index: auto;
           text-align: center;
-            #cover {
-              width: 200px;
-              height: 160px;
-              object-fit: cover;
-              object-position: 50% 40%;
-            }
+          #cover {
+            width: 200px;
+            height: 160px;
+            object-fit: cover;
+            object-position: 50% 40%;
+          }
         }
         &__body {
           background-color: white;
