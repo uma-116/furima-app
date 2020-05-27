@@ -19,22 +19,20 @@ $(function () {
     var option = `<option value="${child.id}">${child.name}</option>`
     return option;
   }
-  $(document).on('turbolinks:load', function () {
-    $('#item_category_id').change(function () {      // ①セレクトボックスが切り替わったら発火
-      let parent = $(this).val()
-      $.ajax({                                       // ②リクエストを送る
-        url: "/category/set_children",
-        type: 'GET',
-        data: { parent_id: parent },
-        dataType: "json"
-      })
-        .done(function (children) {                  // ③html追加
-          $('#jsChildren_id').remove()
-          $('#jsGrandchildren_id').remove()
-          var html = buildCategoryForm(children)
-          $('.jsCategory').append(html);
-        })
+  $('#item_category_id').change(function () {      // ①セレクトボックスが切り替わったら発火
+    let parent = $(this).val()
+    $.ajax({                                       // ②リクエストを送る
+      url: "/category/set_children",
+      type: 'GET',
+      data: { parent_id: parent },
+      dataType: "json"
     })
+      .done(function (children) {                  // ③html追加
+        $('#jsChildren_id').remove()
+        $('#jsGrandchildren_id').remove()
+        var html = buildCategoryForm(children)
+        $('.jsCategory').append(html);
+      })
   });
 
   $(document).on('change','#jsChildren_id', function () {
