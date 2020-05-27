@@ -50,5 +50,9 @@ Rails.application.routes.draw do
       get "new_user"
     end
   end
+
+  resources :categories, only: [:show] do
+  end
+
 end
 
