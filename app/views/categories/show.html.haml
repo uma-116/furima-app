@@ -1,0 +1,28 @@
+= render "items/header"
+.categories
+  .categories__product-box
+    .categories__product-box__head
+      = link_to "#" do
+        %h3
+          = "#{@category.name}の商品一覧"
+    .categories__product-box__lists
+      - @items.each do |item|
+        .categories__product-box__lists__list
+          = link_to item_path(item.id) do
+            %figure.categories__product-box__lists__list__image
+              = image_tag item.images.find_by(item_id: item.id).img_url, size: "220x150",alt: "ICON", id: "cover"
+            .categories__product-box__lists__list__body
+              .categories__product-box__lists__list__body__name
+                %h3
+                  = "#{item.name}"
+              .categories__product-box__lists__list__body__details
+                %ul
+                  %li
+                    = "#{item.price.to_s(:delimited)}円"
+                  %li.categories__product-box__lists__list__body__details__link-icon
+                    %span
+                      ★
+                    ０
+                %p
+                  (税込)
+= render "items/footer"

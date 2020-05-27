@@ -2,15 +2,15 @@
   .parent
     - @parents.each do |parent|
       .parent-content
-        = link_to "#" do
+        = link_to category_path(parent.id) do
           = parent.name
         .child
           - parent.children.each do |child|
             .child-content
-              = link_to "#" do
+              = link_to category_path(child.id) do
                 = child.name
               .grandchild
                 - child.children.each do |grandchild|
                   .grandchild-content
-                    = link_to "#" do
+                    = link_to category_path(grandchild.id) do
                       = grandchild.name
