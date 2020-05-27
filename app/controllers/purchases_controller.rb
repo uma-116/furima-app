@@ -5,7 +5,7 @@ class PurchasesController < ApplicationController
   def index
     if @card.blank?
       #登録された情報がない場合にカード登録画面に移動
-      redirect_to new_credit_card_path
+      redirect_to new_credit_card_path, notice:'商品購入にはクレジットカードの登録が必要です'
     else
       Payjp.api_key = Rails.application.credentials[:PAYJP_ACCESS_KEY]
       #保管した顧客IDでpayjpから情報取得
