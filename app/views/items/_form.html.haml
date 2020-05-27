@@ -99,7 +99,7 @@
       .content__main__botton-box
         = f.submit "出品する", class: "content__main__botton-box__send-botton"
         -# = f.submit "下書きに保存", class: "content__main__botton-box__draft-botton"
-        = link_to "#", class: "back-btn" do
+        = link_to root_path, class: "content__main__botton-box__draft-botton", id: "back-btn" do
           もどる
 
     .content__main__warning-box
