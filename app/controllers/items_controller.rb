@@ -29,6 +29,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    if @item.images.count <= 9
+      @item.images.build
+    end
     grandchild_category = @item.category
     child_category = grandchild_category.parent
 

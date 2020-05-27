@@ -13,13 +13,29 @@
         最大10枚までアップロードできます
         %br
           #image-box
+            #preview
+              - @item.images.each_with_index do |image,i|
+                - if image.persisted?
+                  .preview-box{data: {index:i}, id: "preview-box__#{i}"}
+                    .upper-box
+                      = image_tag "#{image.img}", data: {index:i}, class: "edit-image", alt: "preview", id: "image-box__#{i}"
+                    .lower-box
+                      .update-box{data: {index:i}, id: "update-box__#{i}"}
+                        %label.edit-btn 編集
+                      .delete-box{data: {index:i}, id: "delete-box__#{i}"}
+                        %span.delete-btn 削除
+                - else
+                  %label.add-box{for: "item_images_attributes_#{i}_img", data: {index:i}, id: "add-box__#{i}"}
+                    %i.fas.fa-plus
+                      %br
+                      .add-text
+                        画像を追加
+                  
+
             = f.fields_for :images do |image|
-              %div{data: { index: "#{image.index}"}}
-                = image.file_field :img
-                = image.check_box :_destroy
-                %br
-                  %span.js-remove
-                    削除
+              .add_group{data: {index:image.index}}
+                = image.file_field :img, class: "hidden-field"
+                = image.check_box :_destroy, class: "hidden-destroy"
       .content__main__item-name-box
         .text-bold
           商品名
@@ -86,22 +102,21 @@
                 必須
           .content__main__price-box__inner__right-box
             = f.number_field :price, class:"content__main__price-box__inner__right-box__price", min: 300, max: 9999999
-        -#.content__main__price-box__fee-inner
-          -#.content__main__price-box__fee-inner__left
+        .content__main__price-box__fee-inner
+          .content__main__price-box__fee-inner__left
             販売手数料 (10%)
-          -#.content__main__price-box__fee-inner__right
-            [販売価格 * 0.1 の合計値が入ります]
-        -#.content__main__price-box__profit-inner
-          -#.content__main__price-box__profit-inner__left
+          .content__main__price-box__fee-inner__right
+            %span.sall-fee
+        .content__main__price-box__profit-inner
+          .content__main__price-box__profit-inner__left
             販売利益
-          -#.content__main__price-box__profit-inner__right
-            [販売価格 - 手数料 の合計値が入ります]        
+          .content__main__price-box__profit-inner__right
+            %span.profit
       .content__main__botton-box
         = f.submit "出品する", class: "content__main__botton-box__send-botton"
         -# = f.submit "下書きに保存", class: "content__main__botton-box__draft-botton"
-        .content__main__botton-box__draft-botton
-          = link_to "#", class: "back-btn" do
-            もどる
+        = link_to root_path, class: "content__main__botton-box__draft-botton", id: "back-btn" do
+          もどる
 
     .content__main__warning-box
       禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
