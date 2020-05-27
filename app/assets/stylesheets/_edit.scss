@@ -41,6 +41,7 @@
   width: 100px;
   height: 148px;
   font-size: 15px;
+  line-height: 100;
   text-decoration: none;
   text-align: center;
   align-items: center;
@@ -48,8 +49,10 @@
   justify-content: center;
   background-color: #dcdcdc;
   color: #ffffff;
-  outline: 1px solid #f5f5f5;
   margin-bottom: 3px;
+  .add-text {
+    margin-top: 15px;
+  }
 }
 
 .add-delete-box {
@@ -77,6 +80,9 @@
   background-color: #dcdcdc;
   color: #ffffff;
   margin-bottom: 3px;
+  .image-text {
+    margin-top: 15px;
+  }
 }
 
 .hidden-field {

@@ -28,8 +28,8 @@
                   %label.add-box{for: "item_images_attributes_#{i}_img", data: {index:i}, id: "add-box__#{i}"}
                     %i.fas.fa-plus
                       %br
-                      %br
-                      画像を追加
+                      .add-text
+                        画像を追加
                   
 
             = f.fields_for :images do |image|

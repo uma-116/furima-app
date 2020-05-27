@@ -3,7 +3,7 @@ $(function(){
     let id = $(this).data('index')
     $(`#item_images_attributes_${id}_img`).trigger('click');
     $(`#item_images_attributes_${id}_img`).change(function(){
-      $(`#image-box__${id}`).replaceWith('<div class="image-icon"><i class="fas fa-camera"><br><br>画像追加済み</i></div>');
+      $(`#image-box__${id}`).replaceWith('<div class="image-icon"><i class="fas fa-camera"><br><div class="image-text">画像追加済み</div></i></div>');
     });
   });
 
