@@ -20,7 +20,6 @@
       width: 900px;
       margin: 26px auto;
       display: flex;
-      justify-content: space-between;
       flex-wrap: wrap;
       a {
         text-decoration: none;
@@ -28,7 +27,7 @@
       }
       &__list {
         width: 200px;
-        margin-top: 20px;
+        margin: 20px 10px;
         display: inline-block;
         a {
           background-color: #fff;

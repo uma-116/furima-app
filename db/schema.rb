@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 2020_05_27_023903) do
     t.string "brand"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
     t.integer "buyer_id"
     t.integer "seller_id"
     t.integer "category_id", null: false
