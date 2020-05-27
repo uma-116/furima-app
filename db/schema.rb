@@ -75,7 +75,6 @@ ActiveRecord::Schema.define(version: 2020_05_27_023903) do
     t.datetime "updated_at", null: false
     t.integer "buyer_id"
     t.integer "seller_id"
-    t.integer "user_id"
     t.integer "category_id", null: false
   end
 

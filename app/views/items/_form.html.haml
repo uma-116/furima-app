@@ -95,13 +95,12 @@
           .content__main__price-box__profit-inner__left
             販売利益
           .content__main__price-box__profit-inner__right
-            %span.profit        
+            %span.profit
       .content__main__botton-box
         = f.submit "出品する", class: "content__main__botton-box__send-botton"
         -# = f.submit "下書きに保存", class: "content__main__botton-box__draft-botton"
-        .content__main__botton-box__draft-botton
-          = link_to root_path, id: "back-btn" do
-            もどる
+        = link_to root_path, class: "content__main__botton-box__draft-botton", id: "back-btn" do
+          もどる
 
     .content__main__warning-box
       禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
