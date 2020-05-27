@@ -7,6 +7,7 @@ FactoryBot.define do
     category_id   {1}
     price         {1000}
     fee_id        {1}
+    prefecture_id {1}
     shipping_id   {1}
     brand         {"シャネル"}
 
