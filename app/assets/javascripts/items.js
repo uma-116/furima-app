@@ -5,7 +5,7 @@ $(document).on('turbolinks:load', ()=> {
   // 画像用のinputを生成する関数
   const buildFileField = (index)=> {
     const html = `<div data-index="${index}" class="review-file_group">
-                    <input class="js-file" type="file" name="item[images_attributes][${index}][img]" id="item_images_attributes_${index}_img"><br>
+                    <input class="item-file" type="file" name="item[images_attributes][${index}][img]" id="item_images_attributes_${index}_img"><br>
                     <div class="preview-remove">削除</div>
                   </div>`;
     return html;
@@ -27,7 +27,7 @@ $(document).on('turbolinks:load', ()=> {
 
   $('.hidden-destroy').hide();
 
-  $('#image-box').on('change', '.js-file', function(e) {
+  $('#image-box').on('change', '.item-file', function(e) {
     const targetIndex = $(this).parent().data("index");
 
     // ファイルのブラウザ上でのURLを取得する
@@ -66,6 +66,6 @@ $(document).on('turbolinks:load', ()=> {
     $(`img[data-index="${targetIndex}"]`).remove();
 
     // 画像入力欄が0個にならないようにしておく
-    if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
+    if ($('.item-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
   });
 });

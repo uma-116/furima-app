@@ -90,3 +90,4 @@ gem "jquery-rails"
 gem 'active_hash'
 
 gem 'fog-aws'
+gem 'jquery-turbolinks'
