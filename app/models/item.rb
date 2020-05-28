@@ -7,24 +7,19 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
 
   # items table association
+  has_many :comments, dependent: :destroy
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true, reject_if: :no_image
-
   def no_image(attributes)
     attributes[:img].blank?
   end
-
-
-  has_many :comments, dependent: :destroy
 
   belongs_to :category
   belongs_to :seller, class_name: "User", foreign_key: "seller_id"
   belongs_to :buyer, class_name: "User", foreign_key: "buyer_id", optional: true
 
-
-
+  # validation
   validates :images, presence: true
-
   validates :name, :detail, :condition_id, :category_id, :price, :fee_id, :prefecture_id, :shipping_id, presence: true
 
   def self.search(search)
