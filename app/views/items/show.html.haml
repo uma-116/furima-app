@@ -122,7 +122,7 @@
       .comment__form-wrapper__form
         = form_with model: [@item, @comment], local: true, id: "new_comment" do |f|
           = f.text_area :comment, class: 'comment__form-wrapper__form__text', placeholder: "コメントを入力", rows: "3"
-          .comment__form__msg
+          .comment__form-wrapper__form__msg
             相手のことを考え丁寧なコメントを心がけましょう。
             %br
             不快な言葉遣いなどは利用制限や退会処分となることがあります。
