@@ -1,12 +1,15 @@
 class CommentsController < ApplicationController
-  # コメント機能実装時コメントアウト外す
-  # def create
-  #   @comment = Comment.create(comment_parmas)
-  #   redirect_to "/items/#{comment.item.id}"
-  # end
+  def create
+    @comment = Comment.new(comment_params)
+    if @comment.save
+      redirect_to item_path(@comment.item_id), notice: 'コメントを送信しました'
+    else
+      redirect_to item_path(@comment.item_id), notice: 'コメントの送信に失敗しました'
+    end
+  end
 
-  # private
-  # def comment_params
-  #   params.require(:comment).permit(:text).merge(user_id: current_user.id)
-  # end
+  private
+  def comment_params
+    params.require(:comment).permit(:comment).merge(user_id: current_user.id, item_id: params[:item_id])
+  end
 end
