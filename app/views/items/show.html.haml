@@ -102,36 +102,38 @@
         コメントはありません。
     - else
       - @comments.reverse.each do |c|
-        .comment__index__info
-          %p
-            %strong
-              .comment__index__info__user
-                = link_to c.user.nickname, "#"
-              .comment__index__info__date
-                = c.created_at
         .comment__index__content
-          = c.comment
-          
+          .comment__index__content__info
+            %p
+              %strong
+                .comment__index__content__info__user
+                  = link_to c.user.nickname, "#"
+                .comment__index__content__info__date
+                  = c.created_at.strftime("%Y年%m月%d日 %H時%M分")
+          .comment__index__content__text
+            = c.comment
+
+  .comment__form-wrapper
     - if @item.buyer_id.present?
       .comment__sold
         ー 売り切れた商品にコメントは出来ません ー
     - elsif @item.buyer_id.nil?
-      - if user_signed_in?
-        .comment__form
-          = form_with model: [@item, @comment], local: true do |f|
-            = f.text_area :comment, class: 'comment__form__text', placeholder: "コメントを入力", rows: "3"
-            .comment__form__msg
-              相手のことを考え丁寧なコメントを心がけましょう。
-              %br
-              不快な言葉遣いなどは利用制限や退会処分となることがあります。
-            = f.submit "コメントを送信する", class: "comment__form__btn"
-      - else
-        .comment__unregist
-          コメントの投稿には
-          = link_to new_user_registration_path, id: 'unregist' do
-            新規登録
-          &thinsp;または&thinsp;
-          = link_to new_user_session_path, id: 'unregist' do
-            ログイン
-          が必要です。
+    - if user_signed_in?
+      .comment__form-wrapper__form
+        = form_with model: [@item, @comment], local: true, id: "new_comment" do |f|
+          = f.text_area :comment, class: 'comment__form-wrapper__form__text', placeholder: "コメントを入力", rows: "3"
+          .comment__form-wrapper__form__msg
+            相手のことを考え丁寧なコメントを心がけましょう。
+            %br
+            不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          = f.submit "コメントを送信する", class: "comment__form-wrapper__form__btn"
+    - else
+      .comment__unregist
+        コメントの投稿には
+        = link_to new_user_registration_path, id: 'unregist' do
+          新規登録
+        &thinsp;または&thinsp;
+        = link_to new_user_session_path, id: 'unregist' do
+          ログイン
+        が必要です。
 = render "footer"

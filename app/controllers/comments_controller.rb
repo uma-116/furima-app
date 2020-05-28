@@ -1,10 +1,13 @@
 class CommentsController < ApplicationController
   def create
-    @comment = Comment.new(comment_params)
+    @comment = Comment.create(comment_params)
     if @comment.save
-      redirect_to item_path(@comment.item_id), notice: 'コメントを送信しました'
+      respond_to do |format|
+        format.html {redirect_to item_path(@comment.item_id)}
+        format.json
+      end
     else
-      redirect_to item_path(@comment.item_id), notice: 'コメントの送信に失敗しました'
+      redirect_to item_path(@comment.item_id)
     end
   end
 

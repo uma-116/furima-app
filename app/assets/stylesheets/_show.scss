@@ -201,27 +201,29 @@
       font-size: 16px;
       margin-bottom: 5px;
     }
-    &__info {
-      display: flex;
-      margin-top: 15px;
-      &__user {
-        margin-right: 10px;
-        padding-left: 10px;
-        a{
-          color: #3CCACE;
-          font-size: 16px;
+    &__content {
+      &__info {
+        display: flex;
+        margin-top: 15px;
+        &__user {
+          margin-right: 10px;
+          padding-left: 10px;
+          a{
+            color: #3CCACE;
+            font-size: 16px;
+          }
+        }
+        &__date {
+          font-size: 14px;
         }
       }
-      &__date {
-        font-size: 14px;
+      &__text {
+        background-color: #f8f8f8;
+        line-height: 3;
+        font-size: 17px;
+        padding-left: 15px;
+        border-radius: 10px;
       }
-    }
-    &__content {
-      background-color: #f8f8f8;
-      line-height: 3;
-      font-size: 17px;
-      padding-left: 15px;
-      border-radius: 10px;
     }
   }
 
@@ -234,31 +236,32 @@
     text-align: center;
   }
 
-  &__form {
-    text-align: center;
-    &__text {
-      width: 100%;
-      margin: 20px 0px 15px;
-      padding: 10px;
-      border: 1px solid #d8d8d8;
-      border-radius: 5px;
-    }
-    &__msg {
-      padding: 8px 12px;
-      font-size: 14px;
-      background-color: #f8f8f8;
-      margin: 10 0;
-      text-align: left;
-    }
-    &__btn {
-      width: 60%;
-      margin: 30px 0;
-      background-color: #3CCACE;
-      border-radius: 30px;
-      color: #ffffff;
-      font-size: 19px;
-      line-height: 50px;
-      border: #3CCACE
+  &__form-wrapper {
+    &__form {
+      text-align: center;
+      &__text {
+        width: 100%;
+        margin: 20px 0px 15px;
+        padding: 10px;
+        border: 1px solid #d8d8d8;
+        border-radius: 5px;
+      }
+      &__msg {
+        padding: 8px 12px;
+        font-size: 14px;
+        background-color: #f8f8f8;
+        text-align: left;
+      }
+      &__btn {
+        width: 60%;
+        margin: 30px 0;
+        background-color: #3CCACE;
+        border-radius: 30px;
+        color: #ffffff;
+        font-size: 19px;
+        line-height: 50px;
+        border: #3CCACE
+      }
     }
   }
 

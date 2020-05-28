@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   end
   
   resources :items do
+    resources :comments, only: :create
 
     resources :purchases, only: [:index] do
       collection do
@@ -30,7 +31,6 @@ Rails.application.routes.draw do
       
       get "set_grandzchildren"
       end
-    resources :comments, only: :create
   end
 
     resources :credit_cards, only: [:new, :show, :destroy] do
@@ -38,7 +38,6 @@ Rails.application.routes.draw do
         post 'pay', to: 'credit_cards#pay'
       end
     end
- 
 
   get "category/set_parents", to: "items#set_parents"
   get "category/set_children", to: "items#set_children"
