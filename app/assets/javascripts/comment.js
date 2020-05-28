@@ -44,7 +44,7 @@ $(function(){
       $('.comment__form-wrapper__form__btn').prop('disabled', false);
     })
     .fail(function(){
-      alert('error');
+      alert('コメントが送信できませんでした');
     })
   })
 });
