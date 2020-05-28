@@ -101,7 +101,7 @@
       .comment__index__yet
         コメントはありません。
     - else
-      - @comments.each do |c|
+      - @comments.reverse.each do |c|
         .comment__index__info
           %p
             %strong
