@@ -256,6 +256,7 @@ $main-border-bottom: 1px solid grey;
   background-color: #3ccace;
   font-weight: 900;
   font-size: 18px;
+  height: 126px;
   width: 120px;
   text-align: center;
   border-radius: 4%;
@@ -307,7 +308,7 @@ $main-border-bottom: 1px solid grey;
   font-size: 14px;
   width: 100px;
   height: 80px;
-  margin: 20px 10px 10px 0;
+  margin: 20px 0 10px 10px;
   z-index: 1;
   border-radius: 20px;
   background-color: #71c9f8;
@@ -315,7 +316,6 @@ $main-border-bottom: 1px solid grey;
   padding: 2px 1em;
   position: relative;
   text-align: center;
-  display: inline-block;
 
   input[type="file"] {
     height: 100%;
@@ -339,3 +339,8 @@ $main-border-bottom: 1px solid grey;
   }
 }
 
+#previews{
+  background-color: #f1f0f0;
+  padding: 0 10px;
+  border: 1px dashed #b4b4b4;
+}
